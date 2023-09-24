@@ -8,6 +8,7 @@ from statistics import fmean, median, stdev
 import vskernels
 from vodesfunc import DescaleTarget, set_output
 from vsmasktools import Sobel, normalize_mask
+from vspreview import is_preview
 from vssource import source
 from vstools import (
     DynamicClipsCache,
@@ -19,7 +20,6 @@ from vstools import (
     get_y,
     vs,
 )
-from vspreview import is_preview
 
 FILE = r"X:\path\to\video.m2ts"
 HEIGHT: float = 719.8

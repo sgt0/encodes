@@ -1,6 +1,5 @@
 from pathlib import Path
 
-import sgtfunc
 from vodesfunc import (
     Clamped_Doubler,
     DescaleTarget,
@@ -26,6 +25,8 @@ from vsmuxtools import (
 from vspreview import is_preview
 from vssource import source
 from vstools import FieldBased, core, finalize_clip
+
+import sgtfunc
 
 core.set_affinity(16, 17180)
 

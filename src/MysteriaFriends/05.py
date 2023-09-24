@@ -2,10 +2,8 @@ from pathlib import Path
 
 from awsmfunc import bbmod
 from jvsfunc import retinex_edgemask
-from vsdeband import Placebo
-from vsrgtools import contrasharpening
-from sgtfunc import denoise
 from vodesfunc import Clamped_Doubler, DescaleTarget, Waifu2x_Doubler, grain, set_output
+from vsdeband import Placebo
 from vskernels import Mitchell
 from vsmasktools import SobelStd, diff_creditless_oped
 from vsmuxtools import (
@@ -21,7 +19,10 @@ from vsmuxtools import (
     src_file,
     x265,
 )
+from vsrgtools import contrasharpening
 from vstools import FieldBased, core, finalize_clip, replace_ranges
+
+from sgtfunc import denoise
 
 core.set_affinity(max_cache=17180)
 

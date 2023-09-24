@@ -1,7 +1,6 @@
 from fractions import Fraction
 from pathlib import Path
 
-import sgtfunc
 from vodesfunc import (
     Clamped_Doubler,
     DescaleTarget,
@@ -31,6 +30,8 @@ from vspreview import is_preview
 from vsscale import descale_detail_mask
 from vssource import source
 from vstools import FieldBased, core, depth, finalize_clip, iterate
+
+import sgtfunc
 
 core.set_affinity(16, 17180)
 
