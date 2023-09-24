@@ -1,0 +1,10 @@
+__pycache__
+_workdir
+.mypy_cache
+.venv
+.vsiew
+.vspreview
+.vssource
+*.egg-info/
+*.csv
+*.lwi
