@@ -20,7 +20,7 @@ git+https://github.com/Irrational-Encoding-Wizardry/vs-tools@025932e7f407acf1ef0
 # funcs
 git+https://github.com/dnjulek/jvsfunc@0200b4fe464557fb62ea1abdc04e6851b683bf2e
 git+https://github.com/OpusGang/awsmfunc@0bdcb2d2f149676819471fbeaa606731ab2d833c
-git+https://github.com/Vodes/vodesfunc@55815ee7e1da707db88bdd453bd959dadb2bb018
+git+https://github.com/Vodes/vodesfunc@6d8564a373d27b4acb6a2c3b8832b200f8e24063
 
 # scripts
 git+https://github.com/Infiziert90/getnative@fd8c73746645bf80e1171ec458c1bde66696724f
