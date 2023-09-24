@@ -1,7 +1,10 @@
 from pathlib import Path
 
 from awsmfunc import bbmod
-from sgtfunc import deband, denoise
+from jvsfunc import retinex_edgemask
+from vsdeband import Placebo
+from vsrgtools import contrasharpening
+from sgtfunc import denoise
 from vodesfunc import Clamped_Doubler, DescaleTarget, Waifu2x_Doubler, grain, set_output
 from vskernels import Mitchell
 from vsmasktools import SobelStd, diff_creditless_oped
@@ -65,7 +68,10 @@ upscaled = replace_ranges(upscaled, edgefix, NO_DESCALE)
 denoised = denoise(upscaled, strength=1.2, tr=3)
 
 # Deband
-debanded = deband(upscaled, denoised, thr=2)
+mask_deband = retinex_edgemask(denoised).rgvs.RemoveGrain(3)
+debanded = Placebo.deband(denoised, thr=2, iterations=16)
+debanded = core.std.MaskedMerge(debanded, denoised, mask_deband)
+debanded = contrasharpening(debanded, upscaled, mode=3)
 
 # Regrain
 grained = grain(debanded, seed=84869)

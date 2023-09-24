@@ -73,20 +73,6 @@ def denoise(
     )
 
 
-def deband(
-    rescaled: vs.VideoNode, denoised: vs.VideoNode, thr: float | list[float] = 4
-) -> vs.VideoNode:
-    from jvsfunc import retinex_edgemask
-    from vsdeband import Placebo
-    from vsrgtools import contrasharpening
-    from vstools import core
-
-    mask_deband = retinex_edgemask(denoised).rgvs.RemoveGrain(3)
-    deband = Placebo.deband(denoised, thr=thr, iterations=16)
-    deband = core.std.MaskedMerge(deband, denoised, mask_deband)
-    return contrasharpening(deband, rescaled, mode=3)
-
-
 # Fork of `sscomp.lazylist()` without reimplementing
 # `vstools.clip_async_render()` and some typing improvements.
 #
