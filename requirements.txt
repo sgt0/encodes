@@ -3,7 +3,7 @@ sox==1.4.1
 
 # vs-iew
 git+https://github.com/Irrational-Encoding-Wizardry/lvsfunc@83be576606f934eff979705b497a0ddea74eabd2
-git+https://github.com/Irrational-Encoding-Wizardry/muxtools@9a688a8f9ff0adb4beb4f7258ca32a355d7f5e93
+git+https://github.com/Irrational-Encoding-Wizardry/muxtools@2b8e876758bd0467acb1030cffe39fb7a5e7f6fb
 git+https://github.com/Irrational-Encoding-Wizardry/vs-aa@5ef4cdba39631ad8601747907a9a646b8b0bd1bd
 git+https://github.com/Irrational-Encoding-Wizardry/vs-deband@6c425949d6fbce3c88e55cdf22823253ef74ed4d
 git+https://github.com/Irrational-Encoding-Wizardry/vs-dehalo@197ed286fbe800e762ecf51d040d8c434c204384
