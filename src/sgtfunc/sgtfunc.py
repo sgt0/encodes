@@ -1,5 +1,4 @@
 from muxtools import GJM_GANDHI_PRESET, edit_style, gandhi_default
-from vskernels import Catrom, KernelT
 from vsmasktools import GenericMaskT
 from vstools import SingleOrArr, vs
 
