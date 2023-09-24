@@ -84,9 +84,9 @@ else:
 
     # Video
     settings = settings_builder_x265(preset="placebo")
-    # video_hevc = x265(settings, qp_clip=src).encode(final)
-    video_hevc = VideoFile(
-        Path(__file__).parent.joinpath("_workdir", "09", "encoded.265").resolve(True)
+    encoded = Path(setup.work_dir).joinpath("encoded.265").resolve()
+    video_hevc = (
+        VideoFile(encoded) if encoded.exists() else x265(settings, qp_clip=src).encode(final)
     )
 
     # Audio
