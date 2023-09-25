@@ -1,3 +1,10 @@
 [project]
 name = "sgtfunc"
 version = "0.0.0+local"
+dependencies = [
+    "muxtools>=0.0.8",
+    "vsdenoise>=2.4.0",
+    "vsmasktools>=1.1.2",
+    "vsscale>=1.9.1",
+    "vstools>=2.3.0"
+]
