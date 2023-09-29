@@ -12,7 +12,7 @@ vsexprtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-exprtools@8
 vskernels @ git+https://github.com/Irrational-Encoding-Wizardry/vs-kernels@1e01aa07e210000dd7be2aa4716be171ae48e32d
 vsmasktools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-masktools@6d84c00485d6c7b07ecb50d1b81f0edd33fd2f03
 vsmuxtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-muxtools@17ba4389d39dc1d36527300b81be3ec5f79e04b0
-vspreview @ git+https://github.com/Irrational-Encoding-Wizardry/vs-preview@51e8cd982af18eee606b2c48dd1aebe35abefac7
+vspreview @ git+https://github.com/Irrational-Encoding-Wizardry/vs-preview@9857e6bb102650b7b82d555474ef7b377a24b218
 vsrgtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-rgtools@81da5f79c58d3802ba80ac49bb517f3529bba111
 vsscale @ git+https://github.com/Irrational-Encoding-Wizardry/vs-scale@44c539e3a0eac9c256f7cb01a4a5d235a0669dce
 vssource @ git+https://github.com/Irrational-Encoding-Wizardry/vs-source@a254846ba213d23c20c4dd9bfa5505f6ea441f30
