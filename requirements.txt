@@ -3,7 +3,7 @@ sox==1.4.1
 
 # vs-iew
 lvsfunc @ git+https://github.com/Irrational-Encoding-Wizardry/lvsfunc@83be576606f934eff979705b497a0ddea74eabd2
-muxtools @ git+https://github.com/Irrational-Encoding-Wizardry/muxtools@2b8e876758bd0467acb1030cffe39fb7a5e7f6fb
+muxtools @ git+https://github.com/Irrational-Encoding-Wizardry/muxtools@11debbb5c71e8df7312274d4fea3e8b2833c68f0
 vsaa @ git+https://github.com/Irrational-Encoding-Wizardry/vs-aa@5ef4cdba39631ad8601747907a9a646b8b0bd1bd
 vsdeband @ git+https://github.com/Irrational-Encoding-Wizardry/vs-deband@6c425949d6fbce3c88e55cdf22823253ef74ed4d
 vsdehalo @ git+https://github.com/Irrational-Encoding-Wizardry/vs-dehalo@197ed286fbe800e762ecf51d040d8c434c204384
@@ -11,21 +11,21 @@ vsdenoise @ git+https://github.com/Irrational-Encoding-Wizardry/vs-denoise@a5408
 vsexprtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-exprtools@8eeea60cb70dc180a8f68974df2843e6303ca61b
 vskernels @ git+https://github.com/Irrational-Encoding-Wizardry/vs-kernels@1e01aa07e210000dd7be2aa4716be171ae48e32d
 vsmasktools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-masktools@6d84c00485d6c7b07ecb50d1b81f0edd33fd2f03
-vsmuxtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-muxtools@17ba4389d39dc1d36527300b81be3ec5f79e04b0
+vsmuxtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-muxtools@a11cb20338467c0d32acf580186458466eb36308
 vspreview @ git+https://github.com/Irrational-Encoding-Wizardry/vs-preview@9857e6bb102650b7b82d555474ef7b377a24b218
 vsrgtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-rgtools@81da5f79c58d3802ba80ac49bb517f3529bba111
 vsscale @ git+https://github.com/Irrational-Encoding-Wizardry/vs-scale@44c539e3a0eac9c256f7cb01a4a5d235a0669dce
-vssource @ git+https://github.com/Irrational-Encoding-Wizardry/vs-source@a254846ba213d23c20c4dd9bfa5505f6ea441f30
+vssource @ git+https://github.com/Irrational-Encoding-Wizardry/vs-source@e2220bfae9a3588c2b7844a7f2299a033f0c03b4
 vstools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-tools@c9c037c26d882813ef0c3f409e964a1154edeb7e
 
 # funcs
-awsmfunc @ git+https://github.com/OpusGang/awsmfunc@0bdcb2d2f149676819471fbeaa606731ab2d833c
+awsmfunc @ git+https://github.com/OpusGang/awsmfunc@287fe95842dd88802e794b2cdd0a1b39e6bcc937
 jvsfunc @ git+https://github.com/dnjulek/jvsfunc@0200b4fe464557fb62ea1abdc04e6851b683bf2e
-vodesfunc @ git+https://github.com/Vodes/vodesfunc@6d8564a373d27b4acb6a2c3b8832b200f8e24063
+vodesfunc @ git+https://github.com/Vodes/vodesfunc@5ea4d5a206f75cd17e03928a4b1317670331b74d
 
 # scripts
 fontvalidator @ git+https://github.com/Funami580/Myaamori-Aegisub-Scripts@98f629a23837d3fb8de1aeddea3541d8d13be614#subdirectory=scripts/fontvalidator
 getnative @ git+https://github.com/Infiziert90/getnative@fd8c73746645bf80e1171ec458c1bde66696724f
 
 # dependencies of vspreview plugins
-scipy==1.11.2
+scipy==1.11.3
