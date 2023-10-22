@@ -2,21 +2,21 @@ pymediainfo==6.0.1
 sox==1.4.1
 
 # vs-iew
-lvsfunc @ git+https://github.com/Irrational-Encoding-Wizardry/lvsfunc@83be576606f934eff979705b497a0ddea74eabd2
-muxtools @ git+https://github.com/Irrational-Encoding-Wizardry/muxtools@11debbb5c71e8df7312274d4fea3e8b2833c68f0
+lvsfunc @ git+https://github.com/Irrational-Encoding-Wizardry/lvsfunc@6a0200adba284ce60306644ba404320a289227ee
+muxtools @ git+https://github.com/Irrational-Encoding-Wizardry/muxtools@99d7455a674b2a6ca177fe594617ad0275a4f740
 vsaa @ git+https://github.com/Irrational-Encoding-Wizardry/vs-aa@5ef4cdba39631ad8601747907a9a646b8b0bd1bd
-vsdeband @ git+https://github.com/Irrational-Encoding-Wizardry/vs-deband@6c425949d6fbce3c88e55cdf22823253ef74ed4d
-vsdehalo @ git+https://github.com/Irrational-Encoding-Wizardry/vs-dehalo@197ed286fbe800e762ecf51d040d8c434c204384
-vsdenoise @ git+https://github.com/Irrational-Encoding-Wizardry/vs-denoise@7e6048346813990416bd1fdb30d64257aded2412
+vsdeband @ git+https://github.com/Irrational-Encoding-Wizardry/vs-deband@6917b3d049dd46cdd062c6fd1ada51c633442a60
+vsdehalo @ git+https://github.com/Irrational-Encoding-Wizardry/vs-dehalo@c64f702e8d03c5b18cf4ec2816d68b1e1b555e15
+vsdenoise @ git+https://github.com/Irrational-Encoding-Wizardry/vs-denoise@7514ac63176b2704c243c6b3071e83d23893a52f
 vsexprtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-exprtools@8eeea60cb70dc180a8f68974df2843e6303ca61b
-vskernels @ git+https://github.com/Irrational-Encoding-Wizardry/vs-kernels@b1ed273dcb7ea9fcc1f8245faa5828b47ca9d20d
+vskernels @ git+https://github.com/Irrational-Encoding-Wizardry/vs-kernels@c51d52cbff5cfe00ab2a40c91609f195fb3516e1
 vsmasktools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-masktools@6d84c00485d6c7b07ecb50d1b81f0edd33fd2f03
-vsmuxtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-muxtools@f942c072fda8d995f09fb7d4ed7f0367f92048f2
+vsmuxtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-muxtools@80ab49aa370b708bb5fff66a89bae056bad5103d
 vspreview @ git+https://github.com/Irrational-Encoding-Wizardry/vs-preview@c1d496a2057ae32867ba1eadcd670259b888a0d7
-vsrgtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-rgtools@81da5f79c58d3802ba80ac49bb517f3529bba111
+vsrgtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-rgtools@ece837aa4f401901fe9cc2625a8eae54bbeb3eb2
 vsscale @ git+https://github.com/Irrational-Encoding-Wizardry/vs-scale@44c539e3a0eac9c256f7cb01a4a5d235a0669dce
 vssource @ git+https://github.com/Irrational-Encoding-Wizardry/vs-source@e2220bfae9a3588c2b7844a7f2299a033f0c03b4
-vstools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-tools@c95e208b7aae2195b2c92b2b9c65734b71e8151c
+vstools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-tools@e5ed56601a3874dbd1b211a73a3ded78c01cfff6
 
 # funcs
 awsmfunc @ git+https://github.com/OpusGang/awsmfunc@a97eb8cc78d98a6150e2cfd9dcaa253874b324ee
