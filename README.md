@@ -5,7 +5,7 @@ sgt encodes.
 ## Setup
 
 1. Install Python v3.11.5.
-2. Install [VapourSynth][] R63 globally.
+2. Install [VapourSynth][] globally.
 3. Install a bunch of VapourSynth plugins. Inexhaustive list:
     1. [vs-dfttest2][]. Add `dfttest2.py` to global `site-packages/`.
     2. [vs-mlrt][]. Add `vsmlrt.py` to global `site-packages/`.
@@ -20,7 +20,6 @@ sgt encodes.
     $ .venv/Scripts/activate.bat
     $ python -m pip install -r requirements.txt -r requirements-dev.txt
     $ python -m pip install -e src/sgtfunc/
-    $ vsrepo.py genstubs
     $ patch -Np1 -i patches/fontvalidator-validate-all-tracks.patch
     $ patch -Np1 -i patches/muxtools-tags-utf8.patch
     ```

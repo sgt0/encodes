@@ -94,7 +94,7 @@ else:
 
     # Subs
     subs = (
-        SubFile(r"X:\path\to\02-final.ass")
+        SubFile(r"X:\path\to\02.ass")
         .truncate_by_video(final)
         .clean_styles()
         .clean_garbage()

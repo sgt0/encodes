@@ -21,14 +21,19 @@ from vsmuxtools import (
 )
 from vspreview import is_preview
 from vssource import source
-from vstools import Sar, core, finalize_clip
+from vstools import Sar, core, finalize_clip, replace_ranges
 
 import sgtfunc
 
 core.set_affinity(22, 2 << 13)
 
+NO_AA_DEHALO = [
+    (0, 122),  # Television
+    (303, 362),  # Television
+]
+
 cr = src_file(
-    r"X:\path\to\[SubsPlease] Hoshikuzu Telepath - 01 (1080p) [0C109EDF].mkv",
+    r"X:\path\to\[SubsPlease] Hoshikuzu Telepath - 03 (1080p) [00D25245].mkv",
     idx=source,
 )
 src = cr.init_cut()
@@ -37,7 +42,7 @@ src = cr.init_cut()
 denoised = sgtfunc.denoise(src, limit=255, strength=0.7, tr=3)
 
 # AA
-aa = based_aa(denoised, 2)
+aa = based_aa(denoised, 1.5)
 
 # Native resolution is ~900p but nevertheless it's not descaleable.
 
@@ -50,13 +55,14 @@ dehaloed = dehalomicron(
     dampen=(0.65, True),
     blur_func=Prefilter.GAUSSBLUR2,
 )
+dehaloed = replace_ranges(dehaloed, denoised, NO_AA_DEHALO)
 
 # dehalomicron changes the SAR to 9435136:9389601, so change it back.
 dehaloed = Sar(1, 1).apply(dehaloed)
 
 # Deband
 debanded = Placebo.deband(dehaloed, thr=2, iterations=16)
-debanded = debanded.std.MaskedMerge(dehaloed, dre_edgemask(dehaloed, brz=13 / 255))
+debanded = debanded.std.MaskedMerge(dehaloed, dre_edgemask(dehaloed, brz=11 / 255))
 
 # Regrain
 grained = adaptive_grain(
@@ -69,7 +75,7 @@ if is_preview():
     set_output(src, "src")
     set_output(final, "filter")
 else:
-    setup = Setup("01")
+    setup = Setup("03")
 
     # Video
     settings = settings_builder_x265(
@@ -86,7 +92,7 @@ else:
     video_hevc = (
         VideoFile(encoded)
         if encoded.exists()
-        else x265(settings, zones=[(4704, 4823, 1.2)], qp_clip=src).encode(final)
+        else x265(settings, zones=[(2403, 2522, 1.2)], qp_clip=src).encode(final)
     )
 
     # Audio
@@ -94,7 +100,7 @@ else:
 
     # Subs
     subs = (
-        SubFile(r"X:\path\to\01.ass")
+        SubFile(r"X:\path\to\03.ass")
         .truncate_by_video(final)
         .clean_styles()
         .clean_garbage()
@@ -105,12 +111,10 @@ else:
     chapters = Chapters(
         [
             (0, "Prologue"),
-            (2901, "Opening"),
-            (5060, "Part A"),
-            (23663, "Part B"),
-            (31408, "Ending"),
-            (33565, "Epilogue"),
-            (33925, "Preview"),
+            (600, "Opening"),
+            (2759, "Part A"),
+            (21483, "Part B"),
+            (33808, "Preview"),
         ],
         Fraction(final.fps_num, final.fps_den),
     )
