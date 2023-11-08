@@ -20,6 +20,7 @@ from vsmuxtools import (
     x265,
 )
 from vspreview import is_preview
+from vsscale import FSRCNNXShader
 from vssource import source
 from vstools import Sar, core, finalize_clip, replace_ranges
 
@@ -39,10 +40,10 @@ cr = src_file(
 src = cr.init_cut()
 
 # Denoise
-denoised = sgtfunc.denoise(src, limit=255, strength=0.7, tr=3)
+denoised = sgtfunc.denoise(src, strength=0.31, tr=3)
 
 # AA
-aa = based_aa(denoised, 1.5)
+aa = based_aa(denoised, 1.5, supersampler=FSRCNNXShader.x56)
 
 # Native resolution is ~900p but nevertheless it's not descaleable.
 
@@ -100,7 +101,7 @@ else:
 
     # Subs
     subs = (
-        SubFile(r"X:\path\to\03.ass")
+        SubFile(rf"X:\path\to\{setup.episode}.ass")
         .truncate_by_video(final)
         .clean_styles()
         .clean_garbage()

@@ -28,8 +28,11 @@ import sgtfunc
 
 core.set_affinity(22, 2 << 13)
 
+OP = (2182, 4339)
+ED = (31048, 33204)
+
 cr = src_file(
-    r"X:\path\to\[SubsPlease] Hoshikuzu Telepath - 02 (1080p) [E3A54AAA].mkv",
+    r"X:\path\to\[SubsPlease] Hoshikuzu Telepath - 04 (1080p) [5266766B].mkv",
     idx=source,
 )
 src = cr.init_cut()
@@ -70,7 +73,7 @@ if is_preview():
     set_output(src, "src")
     set_output(final, "filter")
 else:
-    setup = Setup("02")
+    setup = Setup("04")
 
     # Video
     settings = settings_builder_x265(
@@ -87,11 +90,16 @@ else:
     video_hevc = (
         VideoFile(encoded)
         if encoded.exists()
-        else x265(settings, zones=[(4057, 4176, 1.2)], qp_clip=src).encode(final)
+        else x265(
+            settings,
+            zones=[(OP[0], OP[1], 1.2), (ED[0], ED[1], 1.2)],
+            qp_clip=src,
+            resumable=False,
+        ).encode(final)
     )
 
     # Audio
-    audio = do_audio(cr, track=0)
+    audio = do_audio(cr)
 
     # Subs
     subs = (
@@ -106,12 +114,12 @@ else:
     chapters = Chapters(
         [
             (0, "Prologue"),
-            (2254, "Opening"),
-            (4412, "Part A"),
-            (23663, "Part B"),
-            (31408, "Ending"),
-            (33565, "Epilogue"),
-            (33925, "Preview"),
+            (2182, "Opening"),
+            (4340, "Part A"),
+            (16999, "Part B"),
+            (31048, "Ending"),
+            (33205, "Epilogue"),
+            (33805, "Preview"),
         ],
         Fraction(final.fps_num, final.fps_den),
     )

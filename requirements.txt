@@ -1,27 +1,26 @@
 pymediainfo==6.0.1
 sox==1.4.1
 
-# vs-iew
-lvsfunc @ git+https://github.com/Irrational-Encoding-Wizardry/lvsfunc@6a0200adba284ce60306644ba404320a289227ee
-muxtools @ git+https://github.com/Irrational-Encoding-Wizardry/muxtools@99d7455a674b2a6ca177fe594617ad0275a4f740
-vsaa @ git+https://github.com/Irrational-Encoding-Wizardry/vs-aa@5ef4cdba39631ad8601747907a9a646b8b0bd1bd
-vsdeband @ git+https://github.com/Irrational-Encoding-Wizardry/vs-deband@6917b3d049dd46cdd062c6fd1ada51c633442a60
-vsdehalo @ git+https://github.com/Irrational-Encoding-Wizardry/vs-dehalo@c64f702e8d03c5b18cf4ec2816d68b1e1b555e15
-vsdenoise @ git+https://github.com/Irrational-Encoding-Wizardry/vs-denoise@7514ac63176b2704c243c6b3071e83d23893a52f
-vsexprtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-exprtools@8eeea60cb70dc180a8f68974df2843e6303ca61b
-vskernels @ git+https://github.com/Irrational-Encoding-Wizardry/vs-kernels@c51d52cbff5cfe00ab2a40c91609f195fb3516e1
-vsmasktools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-masktools@6d84c00485d6c7b07ecb50d1b81f0edd33fd2f03
-vsmuxtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-muxtools@80ab49aa370b708bb5fff66a89bae056bad5103d
-vspreview @ git+https://github.com/Irrational-Encoding-Wizardry/vs-preview@c1d496a2057ae32867ba1eadcd670259b888a0d7
-vsrgtools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-rgtools@ece837aa4f401901fe9cc2625a8eae54bbeb3eb2
-vsscale @ git+https://github.com/Irrational-Encoding-Wizardry/vs-scale@44c539e3a0eac9c256f7cb01a4a5d235a0669dce
-vssource @ git+https://github.com/Irrational-Encoding-Wizardry/vs-source@e2220bfae9a3588c2b7844a7f2299a033f0c03b4
-vstools @ git+https://github.com/Irrational-Encoding-Wizardry/vs-tools@e5ed56601a3874dbd1b211a73a3ded78c01cfff6
+# JET
+lvsfunc @ git+https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc@e7fc1cbe821c13fa154b41aeb4e0fdfb44b4e961
+vsaa @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-aa@e822da4a1407bc74ee3546250f9c579afd03856e
+vsdeband @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-deband@eddf7612d980bbb9fa5cd7df3f10be920d57efd4
+vsdehalo @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-dehalo@32da15c37c3c1081190d1359c5063d05f88c0e49
+vsdenoise @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise@f7600c50a056c89bd3423a6d5ef3e092a3960649
+vsexprtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-exprtools@9d2a0572247d85cfe00bd0ea595bf02657f8c3d2
+vskernels @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-kernels@fce6cefe50730fb5b86f8e7c02bcf145b120ecee
+vsmasktools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools@0ba1f2934e485a12fc6b86f1d746b11c38b13a4e
+vspreview @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview@03c1b58b701b7bdf71453f1fed27cbb62023cb08
+vsrgtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools@18d7da21331eeee94b4b825d3d633652fc43770a
+vsscale @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-scale@196041aeddb6f245303484a6fb3b63ae70fb413f
+vssource @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-source@3ef3d2aa9aed13b123a86694ac74d98fceac4197
+vstools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools@d6795329820430e131108af6d1c0be0ed45d8652
 
-# funcs
 awsmfunc @ git+https://github.com/OpusGang/awsmfunc@a97eb8cc78d98a6150e2cfd9dcaa253874b324ee
 jvsfunc @ git+https://github.com/dnjulek/jvsfunc@0200b4fe464557fb62ea1abdc04e6851b683bf2e
+muxtools @ git+https://github.com/Vodes/muxtools@a74f8e141a36da9a2b0a46a271782c3db65da898
 vodesfunc @ git+https://github.com/Vodes/vodesfunc@5ea4d5a206f75cd17e03928a4b1317670331b74d
+vsmuxtools @ git+https://github.com/Vodes/vs-muxtools@80ab49aa370b708bb5fff66a89bae056bad5103d
 
 # scripts
 fontvalidator @ git+https://github.com/Funami580/Myaamori-Aegisub-Scripts@98f629a23837d3fb8de1aeddea3541d8d13be614#subdirectory=scripts/fontvalidator

@@ -14,12 +14,12 @@ GJM Gandhi Sans preset with an additional "Signs" style.
 def denoise(
     clip: vs.VideoNode,
     block_size: int = 16,
-    limit: int = 8,
+    limit: int | tuple[int, int] = 255,
     overlap: int = 8,
-    sigma: SingleOrArr[float] = 0.8,
+    sigma: SingleOrArr[float] = 0.7,
     sr: int = 2,
-    strength: float = 0.6,
-    thSAD: int = 200,
+    strength: float = 0.2,
+    thSAD: int | tuple[int, int | tuple[int, int]] | None = 115,
     tr: int = 2,
 ) -> vs.VideoNode:
     """
@@ -42,14 +42,11 @@ def denoise(
 
     ref = MVTools.denoise(
         clip,
-        sad_mode=(
-            SADMode.ADAPTIVE_SPATIAL_MIXED,
-            SADMode.ADAPTIVE_SATD_MIXED,
-        ),
+        sad_mode=SADMode.SPATIAL.same_recalc,
         motion=MotionMode.HIGH_SAD,
         prefilter=Prefilter.DFTTEST,
         pel_type=PelType.WIENER,
-        search=SearchMode.DIAMOND,
+        search=SearchMode.DIAMOND.defaults,
         block_size=block_size,
         overlap=overlap,
         thSAD=thSAD,
