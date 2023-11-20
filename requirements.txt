@@ -1,31 +1,24 @@
-pymediainfo==6.0.1
+pymediainfo==6.1.0
 sox==1.4.1
 
 # JET
-lvsfunc @ git+https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc@e7fc1cbe821c13fa154b41aeb4e0fdfb44b4e961
+lvsfunc @ git+https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc@c5a2fc19fc47f433df46ce8e72733fbdb194b5a3
 vsaa @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-aa@e822da4a1407bc74ee3546250f9c579afd03856e
 vsdeband @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-deband@01f9f0d86f6df66dc737bf2346d9435b2727ff20
 vsdehalo @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-dehalo@32da15c37c3c1081190d1359c5063d05f88c0e49
 vsdenoise @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise@de0dcb435f723a4300988ca719963ef030272ca4
 vsexprtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-exprtools@9d2a0572247d85cfe00bd0ea595bf02657f8c3d2
-vskernels @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-kernels@960751b6abafdb4a4b8a2dc83ef1d01d78dc7d93
+vskernels @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-kernels@1f8cf53a8bcb3fab23b17d0e8fb48842f664a051
 vsmasktools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools@0ba1f2934e485a12fc6b86f1d746b11c38b13a4e
 vspreview @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview@03c1b58b701b7bdf71453f1fed27cbb62023cb08
-vsrgtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools@18d7da21331eeee94b4b825d3d633652fc43770a
+vsrgtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools@ef47164bc5c6ef9bf56b514c51b39ccbd817a8c1
 vsscale @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-scale@46fef8316d444f044c885ea39286fe0f0175639c
 vssource @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-source@3ef3d2aa9aed13b123a86694ac74d98fceac4197
-vstools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools@bfc70e34edb04fcbc9ff50900727b5de605db946
+vstools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools@bfdb4fc4d15f5dcfe4d9418c41bb609a233122be
 
 awsmfunc @ git+https://github.com/OpusGang/awsmfunc@a97eb8cc78d98a6150e2cfd9dcaa253874b324ee
+rekt @ git+https://github.com/OpusGang/rekt@c9fc7553a1dbb1a3c50a6fa8774855d8719870e7
 jvsfunc @ git+https://github.com/dnjulek/jvsfunc@0200b4fe464557fb62ea1abdc04e6851b683bf2e
 muxtools @ git+https://github.com/Vodes/muxtools@a74f8e141a36da9a2b0a46a271782c3db65da898
-vodesfunc @ git+https://github.com/Vodes/vodesfunc@b43437e2f8940a229a54c1c8b42d2219e9b175a2
+vodesfunc @ git+https://github.com/Vodes/vodesfunc@b6e31ce8bf56d94ba393fc8dd66076ab44a88603
 vsmuxtools @ git+https://github.com/Vodes/vs-muxtools@365b9cf752d2e58099094bdfc9a57c0611b619e0
-
-# scripts
-fontvalidator @ git+https://github.com/Funami580/Myaamori-Aegisub-Scripts@98f629a23837d3fb8de1aeddea3541d8d13be614#subdirectory=scripts/fontvalidator
-getfscaler @ git+https://github.com/Jaded-Encoding-Thaumaturgy/getfscaler@920b4451d7968eb2ea42729600e22d7a14a3858c
-getnative @ git+https://github.com/Infiziert90/getnative@fd8c73746645bf80e1171ec458c1bde66696724f
-
-# dependencies of vspreview plugins
-scipy==1.11.3

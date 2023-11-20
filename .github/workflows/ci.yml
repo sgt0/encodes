@@ -9,7 +9,7 @@ jobs:
       CC: gcc-12
       CXX: g++-12
     steps:
-      - uses: actions/checkout@v4.1.0
+      - uses: actions/checkout@v4.1.1
       - run: ${{ env.CC }} --version
       - uses: actions/setup-python@v4.7.1
         with:

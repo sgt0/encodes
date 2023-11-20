@@ -2,9 +2,10 @@
 name = "sgtfunc"
 version = "0.0.0+local"
 dependencies = [
-    "muxtools>=0.0.8",
-    "vsdenoise>=2.4.0",
-    "vsmasktools>=1.1.2",
+    "muxtools>=0.0.9",
+    "vsdenoise>=2.5.1",
+    "vskernels>=3.0.2",
+    "vsmasktools>=1.2.1",
     "vsscale>=1.9.1",
     "vstools>=2.3.0"
 ]

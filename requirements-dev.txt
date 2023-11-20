@@ -1,4 +1,11 @@
-black==23.9.1
+black==23.11.0
 flake8==6.1.0
 isort==5.12.0
 mypy==1.6.1
+
+fontvalidator @ git+https://github.com/Funami580/Myaamori-Aegisub-Scripts@98f629a23837d3fb8de1aeddea3541d8d13be614#subdirectory=scripts/fontvalidator
+getfscaler @ git+https://github.com/Jaded-Encoding-Thaumaturgy/getfscaler@7cd966d8ed7dae7a7134be9e55190c71ed0de9dd
+getnative @ git+https://github.com/Infiziert90/getnative@fd8c73746645bf80e1171ec458c1bde66696724f
+
+# dependencies of vspreview plugins
+scipy==1.11.3

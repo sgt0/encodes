@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 from muxtools import GJM_GANDHI_PRESET, edit_style, gandhi_default
+from vskernels import KernelT
 from vsmasktools import GenericMaskT
 from vstools import SingleOrArr, vs
 
@@ -130,7 +133,9 @@ def lazylist(
 
     s_clip = clip.std.PlaneStats()
 
-    eval_frames = core.std.FrameEval(clip, partial(checkclip, clip=s_clip), prop_src=s_clip)
+    eval_frames = core.std.FrameEval(
+        clip, partial(checkclip, clip=s_clip), prop_src=s_clip
+    )
     clip_async_render(eval_frames, progress="Rendering...")
 
     dark.sort()
@@ -174,6 +179,61 @@ def lazylist(
     return dark_dedupe + light_dedupe
 
 
+def sample_ptype(
+    clips: set[vs.VideoNode], n: int = 50, picture_types: set[str] = {"I", "P", "B"}
+) -> list[int]:
+    """
+    Randomly samples `n` frame numbers from the given clips, selecting only
+    those of the given picture types. This is similar to the frame selection
+    of vspreview's comp feature. One difference here is that the sampled frames
+    will have the same picture type across the clips.
+    """
+
+    from random import randrange
+
+    from vstools import get_prop
+
+    # Work with the smallest frame range.
+    num_frames = min(clip.num_frames for clip in clips)
+
+    picture_types_b = {p.encode() for p in picture_types}
+
+    # Frame numbers that have been checked already.
+    checked = set[int]()
+
+    samples = set[int]()
+    while len(samples) < n:
+        if len(checked) > 50 * n:
+            raise RecursionError("Reached rejection sampling limit.")
+
+        if len(checked) >= num_frames:
+            raise ValueError("Could not find enough frames.")
+
+        # Rejection sample until we get a frame we haven't seen before.
+        x = randrange(start=0, stop=num_frames)
+        while x in checked:
+            x = randrange(start=0, stop=num_frames)
+        checked.add(x)
+
+        # Get this frame's picture type from the first clip.
+        common_picture_type = get_prop(clips[0][x], "_PictType", bytes)
+        if common_picture_type not in picture_types_b:
+            continue
+
+        # Check if the same frame in all other clips are of the same picture
+        # type.
+        if all(
+            get_prop(f, "_PictType", bytes) == common_picture_type
+            for f in vs.core.std.Splice([clip[x] for clip in clips], True).frames(
+                close=True
+            )
+        ):
+            samples.add(x)
+            continue
+
+    return list(samples)
+
+
 def screengen(
     clip: vs.VideoNode,
     folder: str,
@@ -195,7 +255,9 @@ def screengen(
         os.mkdir(folder_path)
 
     for i, num in enumerate(frame_numbers, start=start):
-        filename = "{path}/{suffix}-{:05d}.png".format(num, path=folder_path, suffix=suffix)
+        filename = "{path}/{suffix}-{:05d}.png".format(
+            num, path=folder_path, suffix=suffix
+        )
         matrix = Matrix.from_video(clip)
         if matrix == Matrix.UNKNOWN:
             matrix = Matrix.BT709
@@ -269,3 +331,17 @@ def get_rescale_error(
         )
 
     return get_prop(rescaled.std.PlaneStats(source), "PlaneStatsDiff", float)
+
+
+def pretty_kernel_name(kernel: KernelT) -> str:
+    from vskernels import Bicubic, Kernel, Lanczos
+
+    kernel = Kernel.ensure_obj(kernel)
+    kernel_name = kernel.__class__.__name__
+
+    if isinstance(kernel, Bicubic):
+        kernel_name += f" (Bicubic b={kernel.b:.2f}, c={kernel.c:.2f})"
+    elif isinstance(kernel, Lanczos):
+        kernel_name += f" (taps={kernel.taps})"
+
+    return kernel_name
