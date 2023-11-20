@@ -17,8 +17,8 @@ vssource @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-source@3ef3d2aa9
 vstools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools@bfdb4fc4d15f5dcfe4d9418c41bb609a233122be
 
 awsmfunc @ git+https://github.com/OpusGang/awsmfunc@a97eb8cc78d98a6150e2cfd9dcaa253874b324ee
-rekt @ git+https://github.com/OpusGang/rekt@c9fc7553a1dbb1a3c50a6fa8774855d8719870e7
 jvsfunc @ git+https://github.com/dnjulek/jvsfunc@0200b4fe464557fb62ea1abdc04e6851b683bf2e
 muxtools @ git+https://github.com/Vodes/muxtools@a74f8e141a36da9a2b0a46a271782c3db65da898
 vodesfunc @ git+https://github.com/Vodes/vodesfunc@b6e31ce8bf56d94ba393fc8dd66076ab44a88603
+vs-rekt @ git+https://github.com/OpusGang/rekt@c9fc7553a1dbb1a3c50a6fa8774855d8719870e7
 vsmuxtools @ git+https://github.com/Vodes/vs-muxtools@365b9cf752d2e58099094bdfc9a57c0611b619e0
