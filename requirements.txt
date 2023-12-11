@@ -2,23 +2,23 @@ pymediainfo==6.1.0
 sox==1.4.1
 
 # JET
-lvsfunc @ git+https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc@c5a2fc19fc47f433df46ce8e72733fbdb194b5a3
+lvsfunc @ git+https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc@77bf4846947b50a81ef30d756be5bc6166fbffca
+muxtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/muxtools@a74f8e141a36da9a2b0a46a271782c3db65da898
 vsaa @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-aa@e822da4a1407bc74ee3546250f9c579afd03856e
 vsdeband @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-deband@01f9f0d86f6df66dc737bf2346d9435b2727ff20
 vsdehalo @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-dehalo@32da15c37c3c1081190d1359c5063d05f88c0e49
 vsdenoise @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise@de0dcb435f723a4300988ca719963ef030272ca4
 vsexprtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-exprtools@9d2a0572247d85cfe00bd0ea595bf02657f8c3d2
 vskernels @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-kernels@1f8cf53a8bcb3fab23b17d0e8fb48842f664a051
-vsmasktools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools@0ba1f2934e485a12fc6b86f1d746b11c38b13a4e
-vspreview @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview@03c1b58b701b7bdf71453f1fed27cbb62023cb08
+vsmasktools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools@83febf8948782fad51bfa3f31698a5f78bed65ad
+vsmuxtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-muxtools@365b9cf752d2e58099094bdfc9a57c0611b619e0
+vspreview @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview@6d3415e4021d159c53be0ece6c1a407a7cfdc523
 vsrgtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools@ef47164bc5c6ef9bf56b514c51b39ccbd817a8c1
 vsscale @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-scale@46fef8316d444f044c885ea39286fe0f0175639c
-vssource @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-source@3ef3d2aa9aed13b123a86694ac74d98fceac4197
-vstools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools@bfdb4fc4d15f5dcfe4d9418c41bb609a233122be
+vssource @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-source@8a6a24fe36123f84aa30d5d45ccd8cc9bd927064
+vstools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools@c594d9f7dabc9fed84cb4baaff9533a41640a576
 
-awsmfunc @ git+https://github.com/OpusGang/awsmfunc@a97eb8cc78d98a6150e2cfd9dcaa253874b324ee
+awsmfunc @ git+https://github.com/OpusGang/awsmfunc@d46075c692877cea3ed0e31af64d082ece81c410
 jvsfunc @ git+https://github.com/dnjulek/jvsfunc@0200b4fe464557fb62ea1abdc04e6851b683bf2e
-muxtools @ git+https://github.com/Vodes/muxtools@a74f8e141a36da9a2b0a46a271782c3db65da898
 vodesfunc @ git+https://github.com/Vodes/vodesfunc@b6e31ce8bf56d94ba393fc8dd66076ab44a88603
 vs-rekt @ git+https://github.com/OpusGang/rekt@c9fc7553a1dbb1a3c50a6fa8774855d8719870e7
-vsmuxtools @ git+https://github.com/Vodes/vs-muxtools@365b9cf752d2e58099094bdfc9a57c0611b619e0

@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from typing import NamedTuple
+
 from muxtools import GJM_GANDHI_PRESET, edit_style, gandhi_default
-from vskernels import KernelT
-from vsmasktools import GenericMaskT
-from vstools import SingleOrArr, vs
+from vskernels import Catrom, KernelT
+from vsmasktools import EdgeDetectT, GenericMaskT, PrewittStd
+from vstools import Keyframes, MatrixT, SceneBasedDynamicCache, SingleOrArr, vs
 
 SGT_SUBS_STYLES = [
     *GJM_GANDHI_PRESET,
@@ -345,3 +347,159 @@ def pretty_kernel_name(kernel: KernelT) -> str:
         kernel_name += f" (taps={kernel.taps})"
 
     return kernel_name
+
+
+# MIT License
+#
+# Copyright (c) 2022 LightArrowsEXE
+# Copyright (c) 2023 sgt
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+def adb_heuristics(
+    clip: vs.VideoNode,
+    edge_mask: EdgeDetectT = PrewittStd,
+    matrix: MatrixT | None = None,
+    kernel: KernelT = Catrom,
+) -> vs.VideoNode:
+    """
+    Variation of `lvsfunc.autodb_dpir()` that doesn't do any deblocking, instead
+    this only sets the heuristic frame props.
+
+    :param clip: Clip to process.
+    :param edge_mask: Edge mask to use for calculating the edge values.
+    :param matrix: Matrix of the processed clip.
+    :param kernel: Kernel to use for conversions between YUV and RGB.
+
+    :return: Clip with "Adb_*" props.
+    """
+
+    from functools import partial
+    from typing import Sequence
+
+    from vskernels import Kernel
+    from vsmasktools import normalize_mask
+    from vsrgtools import BlurMatrix
+    from vstools import Matrix, check_variable, get_prop, shift_clip
+
+    def eval(n: int, f: Sequence[vs.VideoFrame], clip: vs.VideoNode) -> vs.VideoNode:
+        evref_diff, y_next_diff, y_prev_diff = [
+            get_prop(f[i], prop, float)
+            for i, prop in zip(range(3), ["EdgeValRefDiff", "YNextDiff", "YPrevDiff"])
+        ]
+
+        f_type = get_prop(f[0], "_PictType", bytes).decode("utf-8")
+        if f_type == "I":
+            y_next_diff = (y_next_diff + evref_diff) / 2
+
+        return clip.std.SetFrameProps(
+            Adb_EdgeValRefDiff=max(evref_diff * 255, -1),
+            Adb_YNextDiff=max(y_next_diff * 255, -1),
+            Adb_YPrevDiff=max(y_prev_diff * 255, -1),
+        )
+
+    assert check_variable(clip, adb_heuristics)
+    kernel = Kernel.ensure_obj(kernel)
+    is_rgb = clip.format.color_family is vs.RGB
+    if not is_rgb:
+        if matrix is None:
+            matrix = Matrix.from_video(clip)
+
+        targ_matrix = Matrix(matrix)
+
+        rgb = kernel.resample(clip, format=vs.RGBS, matrix_in=targ_matrix)
+    else:
+        rgb = clip
+
+    evref = normalize_mask(edge_mask, rgb)
+
+    # Note that `mode="s"` is not equivalent to `mode=ConvMode.SQUARE`.
+    evref_rm = BlurMatrix.WMEAN(evref.std.Median(), mode="s")  # type: ignore[arg-type]
+
+    diffevref = evref.std.PlaneStats(evref_rm, prop="EdgeValRef")
+    diffnext = rgb.std.PlaneStats(shift_clip(rgb, 1), prop="YNext")
+    diffprev = rgb.std.PlaneStats(shift_clip(rgb, -1), prop="YPrev")
+
+    ret = rgb.std.FrameEval(
+        partial(eval, clip=rgb), prop_src=[diffevref, diffnext, diffprev]
+    )
+
+    return kernel.resample(
+        ret, format=clip.format, matrix=targ_matrix if not is_rgb else None
+    )
+
+
+class AdbPropsTuple(NamedTuple):
+    evref_diff: float
+    y_next_diff: float
+    y_prev_diff: float
+
+
+def adb_props(f: vs.VideoFrame) -> AdbPropsTuple:
+    from vstools import get_prop
+
+    return AdbPropsTuple(
+        get_prop(f, "Adb_EdgeValRefDiff", float),
+        get_prop(f, "Adb_YNextDiff", float),
+        get_prop(f, "Adb_YPrevDiff", float),
+    )
+
+
+def avg_adb_props(clip: vs.VideoNode) -> AdbPropsTuple:
+    from statistics import fmean
+
+    from vstools import clip_data_gather
+
+    stats = clip_data_gather(clip, None, lambda _, f: adb_props(f))
+    return AdbPropsTuple(
+        fmean(x.evref_diff for x in stats),
+        fmean(x.y_next_diff for x in stats),
+        fmean(x.y_prev_diff for x in stats),
+    )
+
+
+class SceneBasedAdbHeuristics(SceneBasedDynamicCache):
+    """
+    Calculates heuristics from `adb_heuristics()` on a per-scene basis, setting
+    frame props for the average heuristic value within a scene.
+
+    Example usage::
+
+      keyframes = Keyframes.from_clip(clip)
+      propped_clip = SceneBasedAdbHeuristics.from_clip(clip, keyframes)
+      # Can now build upon the "Scene_Avg_*" props.
+    """
+
+    def __init__(
+        self,
+        clip: vs.VideoNode,
+        keyframes: Keyframes | str,
+        cache_size: int = 5,
+    ) -> None:
+        super().__init__(adb_heuristics(clip), keyframes, cache_size)
+
+    def get_clip(self, scene_idx: int) -> vs.VideoNode:
+        frame_range = self.keyframes.scenes[scene_idx]
+        cut = self.clip[frame_range.start : frame_range.stop]
+        evref_diff, y_next_diff, y_prev_diff = avg_adb_props(cut)
+        return self.clip.std.SetFrameProps(
+            Scene_Index=scene_idx,
+            Scene_Avg_EdgeValRefDiff=evref_diff,
+            Scene_Avg_YNextDiff=y_next_diff,
+            Scene_Avg_YPrevDiff=y_prev_diff,
+        )
