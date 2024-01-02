@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
       - run: ${{ env.CC }} --version
-      - uses: actions/setup-python@v4.8.0
+      - uses: actions/setup-python@v5.0.0
         with:
           python-version: '3.11.5'
           cache: 'pip'
@@ -27,33 +27,19 @@ jobs:
       - run: python3 -m pip inspect
       - name: Verify VapourSynth install
         run: python3 -c "import vapoursynth; print(vapoursynth.core.version())"
-      - name: Setup venv
-        run: python3 -m venv --clear --system-site-packages .venv
       - name: Install dependencies
-        run: |
-          source .venv/bin/activate
-          python3 -m pip install -r requirements.txt -r requirements-dev.txt
+        run: python3 -m pip install -r requirements.txt -r requirements-dev.txt
       - name: Install sgtfunc
-        run: |
-          source .venv/bin/activate
-          python3 -m pip install -e src/sgtfunc/
+        run: python3 -m pip install -e src/sgtfunc/
       - name: mypy
-        run: |
-          source .venv/bin/activate
-          for dir in src; do python3 -m mypy --ignore-missing-imports "$dir"; done
+        run: for dir in src; do python3 -m mypy --ignore-missing-imports "$dir"; done
         continue-on-error: true
       - name: flake8
-        run: |
-          source .venv/bin/activate
-          python3 -m flake8
+        run: python3 -m flake8
         continue-on-error: true
       - name: black
-        run: |
-          source .venv/bin/activate
-          python3 -m black --check --diff .
+        run: python3 -m black --check --diff .
         continue-on-error: true
       - name: isort
-        run: |
-          source .venv/bin/activate
-          python3 -m isort --check --diff .
+        run: python3 -m isort --check --diff .
         continue-on-error: true
