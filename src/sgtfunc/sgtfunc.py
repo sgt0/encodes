@@ -498,7 +498,6 @@ class SceneBasedAdbHeuristics(SceneBasedDynamicCache):
         cut = self.clip[frame_range.start : frame_range.stop]
         evref_diff, y_next_diff, y_prev_diff = avg_adb_props(cut)
         return self.clip.std.SetFrameProps(
-            Scene_Index=scene_idx,
             Scene_Avg_EdgeValRefDiff=evref_diff,
             Scene_Avg_YNextDiff=y_next_diff,
             Scene_Avg_YPrevDiff=y_prev_diff,
