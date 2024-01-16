@@ -135,9 +135,7 @@ def lazylist(
 
     s_clip = clip.std.PlaneStats()
 
-    eval_frames = core.std.FrameEval(
-        clip, partial(checkclip, clip=s_clip), prop_src=s_clip
-    )
+    eval_frames = core.std.FrameEval(clip, partial(checkclip, clip=s_clip), prop_src=s_clip)
     clip_async_render(eval_frames, progress="Rendering...")
 
     dark.sort()
@@ -226,9 +224,7 @@ def sample_ptype(
         # type.
         if all(
             get_prop(f, "_PictType", bytes) == common_picture_type
-            for f in vs.core.std.Splice([clip[x] for clip in clips], True).frames(
-                close=True
-            )
+            for f in vs.core.std.Splice([clip[x] for clip in clips], True).frames(close=True)
         ):
             samples.add(x)
             continue
@@ -249,6 +245,7 @@ def screengen(
 
     import os
 
+    from vskernels import Lanczos
     from vstools import Matrix, core
 
     folder_path = "./{name}".format(name=folder)
@@ -257,16 +254,15 @@ def screengen(
         os.mkdir(folder_path)
 
     for i, num in enumerate(frame_numbers, start=start):
-        filename = "{path}/{suffix}-{:05d}.png".format(
-            num, path=folder_path, suffix=suffix
-        )
+        filename = "{path}/{suffix}-{:05d}.png".format(num, path=folder_path, suffix=suffix)
         matrix = Matrix.from_video(clip)
         if matrix == Matrix.UNKNOWN:
             matrix = Matrix.BT709
 
-        print(f"Saving Frame {i}/{len(frame_numbers)} from {suffix}", end="\r")
+        print(f"Saving frame {i}/{len(frame_numbers)} from {suffix}", end="\r")
         core.imwri.Write(
-            clip.resize.Spline36(
+            Lanczos(3).resample(
+                clip,
                 format=vs.RGB24,
                 matrix_in=matrix,
                 dither_type="error_diffusion",
@@ -435,13 +431,9 @@ def adb_heuristics(
     diffnext = rgb.std.PlaneStats(shift_clip(rgb, 1), prop="YNext")
     diffprev = rgb.std.PlaneStats(shift_clip(rgb, -1), prop="YPrev")
 
-    ret = rgb.std.FrameEval(
-        partial(eval, clip=rgb), prop_src=[diffevref, diffnext, diffprev]
-    )
+    ret = rgb.std.FrameEval(partial(eval, clip=rgb), prop_src=[diffevref, diffnext, diffprev])
 
-    return kernel.resample(
-        ret, format=clip.format, matrix=targ_matrix if not is_rgb else None
-    )
+    return kernel.resample(ret, format=clip.format, matrix=targ_matrix if not is_rgb else None)
 
 
 class AdbPropsTuple(NamedTuple):
