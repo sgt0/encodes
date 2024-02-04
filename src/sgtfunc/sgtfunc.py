@@ -58,9 +58,7 @@ def denoise(
         limit=limit,
     )
 
-    denoised_luma = BM3DCudaRTC.denoise(
-        clip, ref=ref, sigma=sigma, tr=tr, profile=Profile.NORMAL, planes=0
-    )
+    denoised_luma = BM3DCudaRTC.denoise(clip, ref=ref, sigma=sigma, tr=tr, profile=Profile.NORMAL, planes=0)
 
     return nl_means(
         denoised_luma,
@@ -179,9 +177,7 @@ def lazylist(
     return dark_dedupe + light_dedupe
 
 
-def sample_ptype(
-    clips: set[vs.VideoNode], n: int = 50, picture_types: set[str] = {"I", "P", "B"}
-) -> list[int]:
+def sample_ptype(clips: set[vs.VideoNode], n: int = 50, picture_types: set[str] = {"I", "P", "B"}) -> list[int]:
     """
     Randomly samples `n` frame numbers from the given clips, selecting only
     those of the given picture types. This is similar to the frame selection
@@ -395,8 +391,7 @@ def adb_heuristics(
 
     def eval(n: int, f: Sequence[vs.VideoFrame], clip: vs.VideoNode) -> vs.VideoNode:
         evref_diff, y_next_diff, y_prev_diff = [
-            get_prop(f[i], prop, float)
-            for i, prop in zip(range(3), ["EdgeValRefDiff", "YNextDiff", "YPrevDiff"])
+            get_prop(f[i], prop, float) for i, prop in zip(range(3), ["EdgeValRefDiff", "YNextDiff", "YPrevDiff"])
         ]
 
         f_type = get_prop(f[0], "_PictType", bytes).decode("utf-8")

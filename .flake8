@@ -1,5 +1,5 @@
 [flake8]
 exclude = .venv
-max-line-length = 99
+max-line-length = 120
 select = E,F,W,B,B901,B902,B903
 extend-ignore = E203, E226, E501
