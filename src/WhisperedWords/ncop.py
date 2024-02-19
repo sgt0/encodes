@@ -49,9 +49,7 @@ dt = DescaleTarget(
 
 # Generate doubled clip for line mask.
 dt.get_upscaled(src)
-dt.line_mask = (
-    Kirsch.edgemask(dt.doubled, 80 / 250, 150 / 250, planes=0).std.Maximum().std.Inflate()
-)
+dt.line_mask = Kirsch.edgemask(dt.doubled, 80 / 250, 150 / 250, planes=0).std.Maximum().std.Inflate()
 dt.line_mask = Bilinear.scale(dt.line_mask, src.width, src.height).std.Limiter()
 
 upscaled = dt.generate_clips(src).get_upscaled(src)
@@ -100,9 +98,7 @@ else:
     )
 
     encoded = Path(setup.work_dir).joinpath("encoded.265").resolve()
-    video_hevc = (
-        VideoFile(encoded) if encoded.exists() else x265(settings, qp_clip=src).encode(final)
-    )
+    video_hevc = VideoFile(encoded) if encoded.exists() else x265(settings, qp_clip=src).encode(final)
 
     # Audio
     audio = do_audio(JPNBD, track=0, encoder=FLAC())

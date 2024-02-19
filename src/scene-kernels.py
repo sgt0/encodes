@@ -75,9 +75,7 @@ class SceneRescaleErrors(dict[int, SceneRescaleStats]):
         min_avg_error = SceneRescaleStats(kernel="UndefinedKernel", scene_idx=idx, mean=999.9)
         for name, rescale in rescales.items():
             cut_rescale = rescale[frame_range.start : frame_range.stop]
-            frames_errors = clip_data_gather(
-                cut_rescale, None, lambda _, f: get_prop(f, "PlaneStatsDiff", float)
-            )
+            frames_errors = clip_data_gather(cut_rescale, None, lambda _, f: get_prop(f, "PlaneStatsDiff", float))
             avg_error = fmean(frames_errors)
             if avg_error < min_avg_error.mean:
                 min_avg_error.kernel = name

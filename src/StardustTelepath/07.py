@@ -75,9 +75,7 @@ debanded = Placebo.deband(dehaloed, thr=2, iterations=16)
 debanded = debanded.std.MaskedMerge(dehaloed, dre_edgemask(dehaloed, brz=11 / 255))
 
 # Regrain
-grained = adaptive_grain(
-    debanded, strength=[1.9, 0.4], size=3.3, temporal_average=50, seed=217404, **ntype4
-)
+grained = adaptive_grain(debanded, strength=[1.9, 0.4], size=3.3, temporal_average=50, seed=217404, **ntype4)
 final = finalize_clip(grained)
 
 
@@ -114,12 +112,7 @@ else:
     audio = do_audio(cr)
 
     # Subs
-    subs = (
-        SubFile(rf"X:\path\to\{setup.episode}.ass")
-        .truncate_by_video(final)
-        .clean_styles()
-        .clean_garbage()
-    )
+    subs = SubFile(rf"X:\path\to\{setup.episode}.ass").truncate_by_video(final).clean_styles().clean_garbage()
     fonts = subs.collect_fonts()
 
     # Chapters

@@ -75,15 +75,11 @@ oped_credit_mask = diff_creditless_oped(
 )
 oped_credit_mask = iterate(oped_credit_mask, core.std.Maximum, 8)
 detail_mask = descale_detail_mask(src, dt.rescale, thr=0.045, xxpand=(20, 20))
-dt.credit_mask = depth(
-    norm_expr([depth(detail_mask, 32), depth(oped_credit_mask, 32)], "x y +"), 16
-)
+dt.credit_mask = depth(norm_expr([depth(detail_mask, 32), depth(oped_credit_mask, 32)], "x y +"), 16)
 
 # Generate doubled clip for line mask.
 dt.get_upscaled(src)
-dt.line_mask = (
-    Kirsch.edgemask(dt.doubled, 80 / 250, 150 / 250, planes=0).std.Maximum().std.Inflate()
-)
+dt.line_mask = Kirsch.edgemask(dt.doubled, 80 / 250, 150 / 250, planes=0).std.Maximum().std.Inflate()
 dt.line_mask = Bilinear.scale(dt.line_mask, src.width, src.height).std.Limiter()
 
 upscaled = dt.generate_clips(src).get_upscaled(src)
@@ -128,9 +124,7 @@ else:
     )
 
     encoded = Path(setup.work_dir).joinpath("encoded.265").resolve()
-    video_hevc = (
-        VideoFile(encoded) if encoded.exists() else x265(settings, qp_clip=src).encode(final)
-    )
+    video_hevc = VideoFile(encoded) if encoded.exists() else x265(settings, qp_clip=src).encode(final)
 
     # Audio
     audio = do_audio(JPNBD, track=0, encoder=FLAC())
@@ -152,9 +146,7 @@ else:
     fonts = subs_shingx.collect_fonts()
 
     # Chapters
-    chapters = Chapters(JPNBD).set_names(
-        ["Prologue", "Opening", "Part A", "Part B", "Ending", "Epilogue", "Preview"]
-    )
+    chapters = Chapters(JPNBD).set_names(["Prologue", "Opening", "Part A", "Part B", "Ending", "Epilogue", "Preview"])
 
     mux(
         video_hevc.to_track("JPNBD encode by sgt", "jpn", default=True, forced=False),

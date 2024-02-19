@@ -66,9 +66,7 @@ debanded = Placebo.deband(dehaloed, thr=2, iterations=16)
 debanded = debanded.std.MaskedMerge(dehaloed, dre_edgemask(dehaloed, brz=11 / 255))
 
 # Regrain
-grained = adaptive_grain(
-    debanded, strength=[1.9, 0.4], size=3.3, temporal_average=50, seed=217404, **ntype4
-)
+grained = adaptive_grain(debanded, strength=[1.9, 0.4], size=3.3, temporal_average=50, seed=217404, **ntype4)
 final = finalize_clip(grained)
 
 
@@ -91,21 +89,14 @@ else:
     )
     encoded = Path(setup.work_dir).joinpath("encoded.265").resolve()
     video_hevc = (
-        VideoFile(encoded)
-        if encoded.exists()
-        else x265(settings, zones=[(2403, 2522, 1.2)], qp_clip=src).encode(final)
+        VideoFile(encoded) if encoded.exists() else x265(settings, zones=[(2403, 2522, 1.2)], qp_clip=src).encode(final)
     )
 
     # Audio
     audio = do_audio(cr, track=0)
 
     # Subs
-    subs = (
-        SubFile(rf"X:\path\to\{setup.episode}.ass")
-        .truncate_by_video(final)
-        .clean_styles()
-        .clean_garbage()
-    )
+    subs = SubFile(rf"X:\path\to\{setup.episode}.ass").truncate_by_video(final).clean_styles().clean_garbage()
     fonts = subs.collect_fonts()
 
     # Chapters

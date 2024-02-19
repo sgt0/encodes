@@ -142,12 +142,7 @@ else:
     audio = do_audio(jpnbd, encoder=FLAC())
 
     # Subs
-    subs = (
-        SubFile(rf"X:\path\to\{setup.episode}.ass")
-        .truncate_by_video(final)
-        .clean_styles()
-        .clean_garbage()
-    )
+    subs = SubFile(rf"X:\path\to\{setup.episode}.ass").truncate_by_video(final).clean_styles().clean_garbage()
     subs_enm = subs.copy().autoswapper(allowed_styles=None)
     fonts = subs.collect_fonts()
 

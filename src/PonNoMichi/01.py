@@ -170,9 +170,7 @@ dt = DescaleTarget(
     downscaler=Hermite(linear=True),
     credit_mask=False,
 ).generate_clips(deblocked_32)
-dt.credit_mask = descale_detail_mask(
-    deblocked_32, dt.rescale, thr=0.07, inflate=8, xxpand=(12, 17)
-)
+dt.credit_mask = descale_detail_mask(deblocked_32, dt.rescale, thr=0.07, inflate=8, xxpand=(12, 17))
 upscaled = dt.get_upscaled(deblocked_32)
 upscaled = replace_ranges(upscaled, deblocked_32, NO_DESCALE)
 upscaled = depth(upscaled, 16)
