@@ -2,7 +2,7 @@ pymediainfo==6.1.0
 sox==1.4.1
 
 # JET
-lvsfunc @ git+https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc@79989a8637ad8712b0d95994a2c8b3c08d3e887c
+lvsfunc @ git+https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc@dd21e138d0f03bf0667a9831844a5efe790cbbac
 muxtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/muxtools@256493a1f774e80ab4c8ec9fd02c0ca9279f9498
 vsaa @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-aa@2c068f02026780df290d62722b944d64b61eb18c
 vsdeband @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-deband@f216647320176e67e301680b51c21371627a43ea
