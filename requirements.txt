@@ -3,7 +3,7 @@ sox==1.4.1
 
 # JET
 lvsfunc @ git+https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc@dd21e138d0f03bf0667a9831844a5efe790cbbac
-muxtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/muxtools@256493a1f774e80ab4c8ec9fd02c0ca9279f9498
+muxtools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/muxtools@2df0434d292402a12c2d65d6893580fab5bac091
 vsaa @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-aa@2c068f02026780df290d62722b944d64b61eb18c
 vsdeband @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-deband@f216647320176e67e301680b51c21371627a43ea
 vsdehalo @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-dehalo@508b8b2d5519ee7a27854cb68c46b6911dab9976
