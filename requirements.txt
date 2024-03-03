@@ -21,4 +21,4 @@ vstools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools@d972855911a
 awsmfunc @ git+https://github.com/OpusGang/awsmfunc@e855ebe7f3ec89cf5d28345688d8836acf44a3f9
 jvsfunc @ git+https://github.com/dnjulek/jvsfunc@0200b4fe464557fb62ea1abdc04e6851b683bf2e
 vodesfunc @ git+https://github.com/Vodes/vodesfunc@070ffe8f9d9a0a9696faf1c51913b8e907af4569
-vs-rekt @ git+https://github.com/OpusGang/rekt@f2030312d0f9cf1d063417adae545ff8789baaef
+vs-rekt @ git+https://github.com/OpusGang/rekt@37df56203c7d39c0aa5a9bcb15251dc06a7704ee
