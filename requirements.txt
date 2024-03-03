@@ -18,7 +18,7 @@ vsscale @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-scale@69d0085f730
 vssource @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-source@8a6a24fe36123f84aa30d5d45ccd8cc9bd927064
 vstools @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools@d972855911a082dd4c823aa0c61764e017e6bdd9
 
-awsmfunc @ git+https://github.com/OpusGang/awsmfunc@d46075c692877cea3ed0e31af64d082ece81c410
+awsmfunc @ git+https://github.com/OpusGang/awsmfunc@e855ebe7f3ec89cf5d28345688d8836acf44a3f9
 jvsfunc @ git+https://github.com/dnjulek/jvsfunc@0200b4fe464557fb62ea1abdc04e6851b683bf2e
 vodesfunc @ git+https://github.com/Vodes/vodesfunc@070ffe8f9d9a0a9696faf1c51913b8e907af4569
 vs-rekt @ git+https://github.com/OpusGang/rekt@f2030312d0f9cf1d063417adae545ff8789baaef
