@@ -44,6 +44,7 @@ def denoise(
         WeightMode,
         nl_means,
     )
+    from vstools import ChromaLocation
 
     ref = MVTools.denoise(
         clip,
@@ -59,6 +60,7 @@ def denoise(
     )
 
     denoised_luma = BM3DCudaRTC.denoise(clip, ref=ref, sigma=sigma, tr=tr, profile=Profile.NORMAL, planes=0)
+    denoised_luma = ChromaLocation.ensure_presence(denoised_luma, ChromaLocation.from_video(clip, strict=True))
 
     return nl_means(
         denoised_luma,
