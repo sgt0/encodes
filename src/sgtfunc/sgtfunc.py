@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import NamedTuple
+from typing import Iterable, Literal, NamedTuple, Sequence
 
 from muxtools import GJM_GANDHI_PRESET, edit_style, gandhi_default
 from vskernels import Catrom, KernelT
@@ -179,12 +179,18 @@ def lazylist(
     return dark_dedupe + light_dedupe
 
 
-def sample_ptype(clips: set[vs.VideoNode], n: int = 50, picture_types: set[str] = {"I", "P", "B"}) -> list[int]:
+def sample_ptype(
+    clips: Sequence[vs.VideoNode], n: int = 50, picture_types: Iterable[Literal["I", "P", "B"]] = {"I", "P", "B"}
+) -> list[int]:
     """
     Randomly samples `n` frame numbers from the given clips, selecting only
     those of the given picture types. This is similar to the frame selection
     of vspreview's comp feature. One difference here is that the sampled frames
     will have the same picture type across the clips.
+
+    :param clips: Clips to sample frames from.
+    :param n: Number of frames to sample. Defaults to 50.
+    :param picture_types: Set of picture types to select. Defaults to all of "I", "P", and "B".
     """
 
     from random import randrange
@@ -222,7 +228,7 @@ def sample_ptype(clips: set[vs.VideoNode], n: int = 50, picture_types: set[str] 
         # type.
         if all(
             get_prop(f, "_PictType", bytes) == common_picture_type
-            for f in vs.core.std.Splice([clip[x] for clip in clips], True).frames(close=True)
+            for f in vs.core.std.Splice([clip[x] for clip in clips], mismatch=True).frames(close=True)
         ):
             samples.add(x)
             continue
