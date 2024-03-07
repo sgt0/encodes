@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Iterable, Literal, NamedTuple, Sequence
 
 from muxtools import GJM_GANDHI_PRESET, edit_style, gandhi_default
@@ -238,34 +239,34 @@ def sample_ptype(
 
 def screengen(
     clip: vs.VideoNode,
-    folder: str,
-    suffix: str,
-    frame_numbers: list[int] = [],
-    start: int = 1,
+    directory_path: Path,
+    prefix: str,
+    frame_numbers: Sequence[int] = [],
 ) -> None:
     """
-    Generates screenshots from a list of frames.
+    Writes images from a list of frames.
+
+    :param clip: Clip to fetch frames from.
+    :param directory_path: Path to the directory that should receive the frame images. Will be created if it does not exist.
+    :param prefix: String that each file name will begin with.
+    :param frame_numbers: Frame numbers to save images of.
     """
 
-    import os
-
-    from vskernels import Lanczos
+    from vskernels import Catrom
     from vstools import Matrix, core
 
-    folder_path = "./{name}".format(name=folder)
+    if not Path.is_dir(directory_path):
+        Path.mkdir(directory_path)
 
-    if not os.path.isdir(folder_path):
-        os.mkdir(folder_path)
-
-    for i, num in enumerate(frame_numbers, start=start):
-        filename = "{path}/{suffix}-{:05d}.png".format(num, path=folder_path, suffix=suffix)
+    for i, num in enumerate(frame_numbers, start=1):
+        filename = directory_path.joinpath(f"{prefix}-{num:05d}.png")
         matrix = Matrix.from_video(clip)
         if matrix == Matrix.UNKNOWN:
             matrix = Matrix.BT709
 
-        print(f"Saving frame {i}/{len(frame_numbers)} from {suffix}", end="\r")
+        print(f"Saving frame {i}/{len(frame_numbers)} from {prefix}", end="\r")
         core.imwri.Write(
-            Lanczos(3).resample(
+            Catrom.resample(
                 clip,
                 format=vs.RGB24,
                 matrix_in=matrix,
@@ -390,7 +391,6 @@ def adb_heuristics(
     """
 
     from functools import partial
-    from typing import Sequence
 
     from vskernels import Kernel
     from vsmasktools import normalize_mask
@@ -398,9 +398,9 @@ def adb_heuristics(
     from vstools import Matrix, check_variable, get_prop, shift_clip
 
     def eval(n: int, f: Sequence[vs.VideoFrame], clip: vs.VideoNode) -> vs.VideoNode:
-        evref_diff, y_next_diff, y_prev_diff = [
+        evref_diff, y_next_diff, y_prev_diff = (
             get_prop(f[i], prop, float) for i, prop in zip(range(3), ["EdgeValRefDiff", "YNextDiff", "YPrevDiff"])
-        ]
+        )
 
         f_type = get_prop(f[0], "_PictType", bytes).decode("utf-8")
         if f_type == "I":
