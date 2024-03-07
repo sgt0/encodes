@@ -192,6 +192,13 @@ def sample_ptype(
     :param clips: Clips to sample frames from.
     :param n: Number of frames to sample. Defaults to 50.
     :param picture_types: Set of picture types to select. Defaults to all of "I", "P", and "B".
+
+    Seeding the RNG can be done beforehand::
+
+        from random import seed
+
+        seed(1)
+        frames = sgtfunc.sample_ptype(clips, n=50, picture_types={"B", "P"})))
     """
 
     from random import randrange
