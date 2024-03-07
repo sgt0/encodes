@@ -8,5 +8,5 @@ dependencies = [
     "vsmasktools>=1.2.1",
     "vsrgtools>=1.6.2",
     "vsscale>=2.0.1",
-    "vstools>=3.0.1"
+    "vstools>=3.1.0"
 ]
