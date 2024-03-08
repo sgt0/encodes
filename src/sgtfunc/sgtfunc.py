@@ -198,7 +198,7 @@ def sample_ptype(
         from random import seed
 
         seed(1)
-        frames = sgtfunc.sample_ptype(clips, n=50, picture_types={"B", "P"})))
+        frames = sgtfunc.sample_ptype(clips, n=50, picture_types={"B", "P"})
     """
 
     from random import randrange
