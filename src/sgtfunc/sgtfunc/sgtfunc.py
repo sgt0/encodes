@@ -1,7 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Iterable, Sequence
 from pathlib import Path
-from typing import Iterable, Literal, NamedTuple, Sequence
+from typing import Literal, NamedTuple
 
 from muxtools import GJM_GANDHI_PRESET, edit_style, gandhi_default
 from vskernels import Catrom, KernelT
@@ -25,7 +26,7 @@ def denoise(
     sigma: SingleOrArr[float] = 0.7,
     sr: int = 2,
     strength: float = 0.2,
-    thSAD: int | tuple[int, int | tuple[int, int]] | None = 115,
+    thSAD: int | tuple[int, int | tuple[int, int]] | None = 115,  # noqa: N803
     tr: int = 2,
 ) -> vs.VideoNode:
     """
@@ -312,6 +313,7 @@ def descale_errors_async(
 def get_rescale_error(
     source: vs.VideoNode,
     rescaled: vs.VideoNode,
+    *,
     line_mask: GenericMaskT | bool = True,
     crop: int = 0,
 ) -> float:
@@ -404,9 +406,10 @@ def adb_heuristics(
     from vsrgtools import BlurMatrix
     from vstools import Matrix, check_variable, get_prop, shift_clip
 
-    def eval(n: int, f: Sequence[vs.VideoFrame], clip: vs.VideoNode) -> vs.VideoNode:
+    def adb_eval(n: int, f: Sequence[vs.VideoFrame], clip: vs.VideoNode) -> vs.VideoNode:  # noqa: ARG001
         evref_diff, y_next_diff, y_prev_diff = (
-            get_prop(f[i], prop, float) for i, prop in zip(range(3), ["EdgeValRefDiff", "YNextDiff", "YPrevDiff"])
+            get_prop(f[i], prop, float)
+            for i, prop in zip(range(3), ["EdgeValRefDiff", "YNextDiff", "YPrevDiff"], strict=False)
         )
 
         f_type = get_prop(f[0], "_PictType", bytes).decode("utf-8")
@@ -441,7 +444,7 @@ def adb_heuristics(
     diffnext = rgb.std.PlaneStats(shift_clip(rgb, 1), prop="YNext")
     diffprev = rgb.std.PlaneStats(shift_clip(rgb, -1), prop="YPrev")
 
-    ret = rgb.std.FrameEval(partial(eval, clip=rgb), prop_src=[diffevref, diffnext, diffprev])
+    ret = rgb.std.FrameEval(partial(adb_eval, clip=rgb), prop_src=[diffevref, diffnext, diffprev])
 
     return kernel.resample(ret, format=clip.format, matrix=targ_matrix if not is_rgb else None)
 
