@@ -22,6 +22,7 @@ sgt encodes.
     $ python -m pip install -e src/sgtfunc/
     $ patch -Np1 -i patches/fontvalidator-validate-all-tracks.patch
     $ patch -Np1 -i patches/muxtools-tags-utf8.patch
+    $ patch -Np1 -i patches/vsdeband-grain-post-process-type.patch
     ```
 
     ```bash
