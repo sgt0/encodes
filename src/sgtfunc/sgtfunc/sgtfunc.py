@@ -409,7 +409,7 @@ def adb_heuristics(
     def adb_eval(n: int, f: Sequence[vs.VideoFrame], clip: vs.VideoNode) -> vs.VideoNode:  # noqa: ARG001
         evref_diff, y_next_diff, y_prev_diff = (
             get_prop(f[i], prop, float)
-            for i, prop in zip(range(3), ["EdgeValRefDiff", "YNextDiff", "YPrevDiff"], strict=False)
+            for i, prop in zip(range(3), ["EdgeValRefDiff", "YNextDiff", "YPrevDiff"], strict=True)
         )
 
         f_type = get_prop(f[0], "_PictType", bytes).decode("utf-8")
