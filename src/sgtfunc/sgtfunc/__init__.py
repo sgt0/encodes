@@ -1,6 +1,6 @@
 __version__ = "0.0.0+local"
 
-from sgtfunc import (
+from .sgtfunc import (
     SGT_SUBS_STYLES,
     SceneBasedAdbHeuristics,
     adb_heuristics,
