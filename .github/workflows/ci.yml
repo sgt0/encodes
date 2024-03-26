@@ -11,35 +11,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
       - run: ${{ env.CC }} --version
+      - name: Update pip
+        run: |
+          pip install --upgrade --user pip
+          pip --version
+      - name: Update pipx
+        run: |
+          pip install --upgrade --user pipx
+          pipx --version
+      - name: Install poetry
+        run: |
+          pipx install poetry
+          poetry --version
       - uses: actions/setup-python@v5.0.0
         with:
           python-version: '3.11.5'
-          cache: 'pip'
-      - name: Update pip
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip --version
+          cache: poetry
+          cache-dependency-path: poetry.lock
       - name: Install VapourSynth
         uses: rlaphoenix/install-vapoursynth-action@v2.1.1
         with:
           version: 65
           cache: true
-      - run: python3 -m pip inspect
+      - run: pip inspect
       - name: Verify VapourSynth install
         run: python3 -c "import vapoursynth; print(vapoursynth.core.version())"
+      - name: Check lockfile
+        run: poetry check --lock
       - name: Install dependencies
-        run: python3 -m pip install -r requirements.txt -r requirements-dev.txt
-      - name: Install sgtfunc
-        run: python3 -m pip install -e src/sgtfunc/
+        run: poetry install
       - name: mypy
-        run: for dir in src/*/; do python3 -m mypy --ignore-missing-imports "$dir"; done
+        run: for dir in src/*/; do poetry run mypy --ignore-missing-imports "$dir"; done
         continue-on-error: true
-      - name: flake8
-        run: python3 -m flake8
-        continue-on-error: true
-      - name: black
-        run: python3 -m black --check --diff .
-        continue-on-error: true
-      - name: isort
-        run: python3 -m isort --check --diff .
+      - name: ruff
+        run: poetry run ruff check --output-format=github .
         continue-on-error: true

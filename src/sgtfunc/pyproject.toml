@@ -1,12 +1,23 @@
+[build-system]
+requires = ["poetry-core==1.9.0"]
+build-backend = "poetry.core.masonry.api"
+
 [project]
+requires-python = ">=3.11"
+
+[tool.poetry]
 name = "sgtfunc"
 version = "0.0.0+local"
-dependencies = [
-    "muxtools>=0.0.9",
-    "vsdenoise>=2.5.1",
-    "vskernels>=3.1.0",
-    "vsmasktools>=1.2.1",
-    "vsrgtools>=1.6.2",
-    "vsscale>=2.0.1",
-    "vstools>=3.1.0"
-]
+description = ""
+authors = ["sgt"]
+license = "GPL-3.0"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+muxtools = "^0.0.9"
+vsdenoise = "^2.5.1"
+vskernels = "^3.1.0"
+vsmasktools = "^1.2.1"
+vsrgtools = "^1.6.2"
+vsscale = "^2.0.1"
+vstools = "^3.1.0"
