@@ -21,6 +21,7 @@ sgt encodes.
     $ poetry install
     $ .venv/Scripts/activate.bat
     $ patch -Np1 -i patches/fontvalidator-validate-all-tracks.patch
+    $ patch -Np1 -i patches/muxtools-sanitize-font-names.patch
     $ patch -Np1 -i patches/muxtools-tags-utf8.patch
     $ patch -Np1 -i patches/vsdeband-grain-post-process-type.patch
     ```

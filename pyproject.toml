@@ -37,6 +37,9 @@ stgpytools = {git = "https://github.com/Setsugennoao/stgpytools", rev = "a57a6fa
 vodesfunc = {git = "https://github.com/Vodes/vodesfunc", rev = "cea015749a39e6e259ddd64b4e76c0684ce1ee35"}
 vs-rekt = {git = "https://github.com/OpusGang/rekt", rev = "37df56203c7d39c0aa5a9bcb15251dc06a7704ee"}
 
+# For muxtools patch to sanitize font names.
+pathvalidate = "3.2.0"
+
 # local
 sgtfunc = {path = "src/sgtfunc", develop = true}
 
