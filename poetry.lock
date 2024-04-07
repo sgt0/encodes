@@ -2396,8 +2396,8 @@ vstools = ">=1.6.2"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-muxtools"
-reference = "6d27283d937c1e5816a00352c8f239644af7009d"
-resolved_reference = "6d27283d937c1e5816a00352c8f239644af7009d"
+reference = "e106cc10fcce843acfefe739756c2c94fb475023"
+resolved_reference = "e106cc10fcce843acfefe739756c2c94fb475023"
 
 [[package]]
 name = "vspreview"
@@ -2556,4 +2556,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.5"
-content-hash = "da0c35e7e94962ed31f25e3d7757f3166865bacff3d9cdb13797becd28ca9d44"
+content-hash = "e5ffc4549652d8fbb30f73bd9d45a9f8e3a4d7252ba30b272dfde0eb1fbb2656"

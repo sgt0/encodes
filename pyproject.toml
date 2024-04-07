@@ -23,7 +23,7 @@ vsdenoise = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise", r
 vsexprtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-exprtools", rev = "ce28ecf44e2525ada73725b47e4f7c81aada12b9"}
 vskernels = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-kernels", rev = "73419b2399ce8e1d652bbf07d543245214d9d621"}
 vsmasktools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools", rev = "b7aee78818d61b6dc720bf3b78a5bf6d210f3f29"}
-vsmuxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-muxtools", rev = "6d27283d937c1e5816a00352c8f239644af7009d"}
+vsmuxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-muxtools", rev = "e106cc10fcce843acfefe739756c2c94fb475023"}
 vspreview = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview", rev = "43ab2f74a71ec734a806f62e08de02c32fd8cfd0"}
 vsrgtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools", rev = "ef47164bc5c6ef9bf56b514c51b39ccbd817a8c1"}
 vsscale = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-scale", rev = "69d0085f730f3580950f3e0f24b8a18da3d9e5b8"}
