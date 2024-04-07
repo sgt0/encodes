@@ -1,7 +1,7 @@
-diff --git a/muxtools/subtitle/font.py b/muxtools/subtitle/font.py
+diff --git a/.venv/Lib/site-packages/muxtools/subtitle/font.py b/.venv/Lib/site-packages/muxtools/subtitle/font.py
 index 07214e3..4ecc34e 100644
---- a/muxtools/subtitle/font.py
-+++ b/muxtools/subtitle/font.py
+--- a/.venv/Lib/site-packages/muxtools/subtitle/font.py
++++ b/.venv/Lib/site-packages/muxtools/subtitle/font.py
 @@ -1,7 +1,7 @@
 -import os
  import shutil
