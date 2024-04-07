@@ -1018,8 +1018,8 @@ wget = ">=3.2"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/muxtools"
-reference = "531cea50c81ed7e4be829e6dd3abac96d0b95476"
-resolved_reference = "531cea50c81ed7e4be829e6dd3abac96d0b95476"
+reference = "492ace9e3e29eea9ecb7a7b42d0644b4678c1aba"
+resolved_reference = "492ace9e3e29eea9ecb7a7b42d0644b4678c1aba"
 
 [[package]]
 name = "mypy"
@@ -2556,4 +2556,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.5"
-content-hash = "e5ffc4549652d8fbb30f73bd9d45a9f8e3a4d7252ba30b272dfde0eb1fbb2656"
+content-hash = "b801f665a4f9609c9e552d7edbeb644f9b7b0327f7889632d04f2aed447a65e0"
