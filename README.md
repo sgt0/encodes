@@ -30,8 +30,6 @@ sgt encodes.
     # Linux
     $ poetry install
     $ source .venv/bin/activate
-    $ python -m pip install -r requirements.txt -r requirements-dev.txt
-    $ python -m pip install -e src/sgtfunc/
 
     # Patches in `patches/` would need to be updated to target
     # `.venv/lib/python3.11/site-packages/`.
