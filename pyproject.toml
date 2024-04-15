@@ -45,7 +45,7 @@ sgtfunc = {path = "src/sgtfunc", develop = true}
 
 [tool.poetry.group.dev.dependencies]
 mypy = "1.9.0"
-ruff = "0.3.5"
+ruff = "0.3.7"
 
 fontvalidator = {git = "https://github.com/Funami580/Myaamori-Aegisub-Scripts", branch = "fix_mkv_mimetype_comparison", rev = "98f629a23837d3fb8de1aeddea3541d8d13be614", subdirectory = "scripts/fontvalidator"}
 getfscaler = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/getfscaler", rev = "7cd966d8ed7dae7a7134be9e55190c71ed0de9dd"}
