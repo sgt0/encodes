@@ -15,20 +15,20 @@ sox = "1.5.0"
 
 # JET
 lvsfunc = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc", rev = "dd21e138d0f03bf0667a9831844a5efe790cbbac"}
-muxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/muxtools", rev = "492ace9e3e29eea9ecb7a7b42d0644b4678c1aba"}
+muxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/muxtools", rev = "5bc0986e26a3793cc6c73134131b74534dd99a30"}
 vsaa = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-aa", rev = "2c068f02026780df290d62722b944d64b61eb18c"}
 vsdeband = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-deband", rev = "d1a3eac0389157792c21511cab4e480552f3a671"}
-vsdehalo = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-dehalo", rev = "508b8b2d5519ee7a27854cb68c46b6911dab9976"}
-vsdenoise = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise", rev = "3fa267dcd27906d763359c4d93b1347721bb69c1"}
+vsdehalo = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-dehalo", rev = "4788fa57b25cbd216b879e1b308ad8696ab2035b"}
+vsdenoise = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise", rev = "2068f6583fedbef2cf53577dc265ee38d8845d94"}
 vsexprtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-exprtools", rev = "ce28ecf44e2525ada73725b47e4f7c81aada12b9"}
 vskernels = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-kernels", rev = "73419b2399ce8e1d652bbf07d543245214d9d621"}
-vsmasktools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools", rev = "b7aee78818d61b6dc720bf3b78a5bf6d210f3f29"}
-vsmuxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-muxtools", rev = "e106cc10fcce843acfefe739756c2c94fb475023"}
-vspreview = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview", rev = "43ab2f74a71ec734a806f62e08de02c32fd8cfd0"}
-vsrgtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools", rev = "ef47164bc5c6ef9bf56b514c51b39ccbd817a8c1"}
+vsmasktools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools", rev = "e80bffbf0087e8c9edb75fd056179520a7ded877"}
+vsmuxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-muxtools", rev = "c477abf96beca0b64a26f2e7826473e5611f7e44"}
+vspreview = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview", rev = "bb68df880a1b6e0f4ba4163e92eb397304c53f1b"}
+vsrgtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools", rev = "a9a5fd235df86f097c4669dea89de14c3a0d613f"}
 vsscale = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-scale", rev = "69d0085f730f3580950f3e0f24b8a18da3d9e5b8"}
-vssource = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-source", rev = "8a6a24fe36123f84aa30d5d45ccd8cc9bd927064"}
-vstools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools", rev = "636413d2fcc171b00ca69ef06e20f7dc39229c63"}
+vssource = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-source", rev = "ebad21823a416b94437cce00434287eeb3337630"}
+vstools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools", rev = "67d83409a326f202b6bf36393c6e35e8a46de3db"}
 
 # misc
 awsmfunc = {git = "https://github.com/OpusGang/awsmfunc", rev = "77c01e914be5ba37fb2e08bf53e47f73649cffdf"}
@@ -45,7 +45,7 @@ sgtfunc = {path = "src/sgtfunc", develop = true}
 
 [tool.poetry.group.dev.dependencies]
 mypy = "1.9.0"
-ruff = "0.3.7"
+ruff = "0.4.1"
 
 fontvalidator = {git = "https://github.com/Funami580/Myaamori-Aegisub-Scripts", branch = "fix_mkv_mimetype_comparison", rev = "98f629a23837d3fb8de1aeddea3541d8d13be614", subdirectory = "scripts/fontvalidator"}
 getfscaler = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/getfscaler", rev = "7cd966d8ed7dae7a7134be9e55190c71ed0de9dd"}
@@ -101,6 +101,7 @@ ignore = [
     "S101",    # Use of `assert` detected
     "S311",    # Standard pseudo-random generators are not suitable for cryptographic purposes
     "T201",    # `print` found
+    "TCH003",  # Move standard library import `...` into a type-checking block
     "TD002",   # Missing author in TODO.
     "TD003",   # Missing issue link on the line following this TODO.
     "TRY003",  # Avoid specifying long messages outside the exception class

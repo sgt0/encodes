@@ -356,13 +356,13 @@ files = [
 
 [[package]]
 name = "comtypes"
-version = "1.4.0"
+version = "1.4.1"
 description = "Pure Python COM package"
 optional = false
 python-versions = "*"
 files = [
-    {file = "comtypes-1.4.0-py3-none-any.whl", hash = "sha256:a52566b18bb77a002c68ceabd0479f21af01545fa94f6a779d712b8c489f71c9"},
-    {file = "comtypes-1.4.0.zip", hash = "sha256:091a1b5b4cd64de5ee9755bf812f7491ebee194508f626936252a89a4cb9b672"},
+    {file = "comtypes-1.4.1-py3-none-any.whl", hash = "sha256:a208a0e3ca1c0a5362735da0ff661822801dce87312b894d7d752add010a21b0"},
+    {file = "comtypes-1.4.1.zip", hash = "sha256:4379443876465c6015fe801d6665b7c75d9ed5b169deee0161a00637f4ebbd2e"},
 ]
 
 [[package]]
@@ -661,13 +661,13 @@ resolved_reference = "7038fed0737287f2bd32580ef549f6facb4932bf"
 
 [[package]]
 name = "idna"
-version = "3.6"
+version = "3.7"
 description = "Internationalized Domain Names in Applications (IDNA)"
 optional = false
 python-versions = ">=3.5"
 files = [
-    {file = "idna-3.6-py3-none-any.whl", hash = "sha256:c05567e9c24a6b9faaa835c4821bad0590fbb9d5779e7caa6e1cc4978e7eb24f"},
-    {file = "idna-3.6.tar.gz", hash = "sha256:9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"},
+    {file = "idna-3.7-py3-none-any.whl", hash = "sha256:82fee1fc78add43492d3a1898bfa6d8a904cc97d8427f683ed8e798d07761aa0"},
+    {file = "idna-3.7.tar.gz", hash = "sha256:028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"},
 ]
 
 [[package]]
@@ -998,7 +998,7 @@ type = ["mypy", "mypy-extensions"]
 
 [[package]]
 name = "muxtools"
-version = "0.0.9"
+version = "0.1.0"
 description = "A library for various muxing and automation tools for anything and everything fansubbing related"
 optional = false
 python-versions = ">=3.10"
@@ -1018,8 +1018,8 @@ wget = ">=3.2"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/muxtools"
-reference = "492ace9e3e29eea9ecb7a7b42d0644b4678c1aba"
-resolved_reference = "492ace9e3e29eea9ecb7a7b42d0644b4678c1aba"
+reference = "5bc0986e26a3793cc6c73134131b74534dd99a30"
+resolved_reference = "5bc0986e26a3793cc6c73134131b74534dd99a30"
 
 [[package]]
 name = "mypy"
@@ -1919,28 +1919,28 @@ jupyter = ["ipywidgets (>=7.5.1,<9)"]
 
 [[package]]
 name = "ruff"
-version = "0.3.7"
+version = "0.4.1"
 description = "An extremely fast Python linter and code formatter, written in Rust."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "ruff-0.3.7-py3-none-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:0e8377cccb2f07abd25e84fc5b2cbe48eeb0fea9f1719cad7caedb061d70e5ce"},
-    {file = "ruff-0.3.7-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:15a4d1cc1e64e556fa0d67bfd388fed416b7f3b26d5d1c3e7d192c897e39ba4b"},
-    {file = "ruff-0.3.7-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d28bdf3d7dc71dd46929fafeec98ba89b7c3550c3f0978e36389b5631b793663"},
-    {file = "ruff-0.3.7-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:379b67d4f49774ba679593b232dcd90d9e10f04d96e3c8ce4a28037ae473f7bb"},
-    {file = "ruff-0.3.7-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c060aea8ad5ef21cdfbbe05475ab5104ce7827b639a78dd55383a6e9895b7c51"},
-    {file = "ruff-0.3.7-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:ebf8f615dde968272d70502c083ebf963b6781aacd3079081e03b32adfe4d58a"},
-    {file = "ruff-0.3.7-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:d48098bd8f5c38897b03604f5428901b65e3c97d40b3952e38637b5404b739a2"},
-    {file = "ruff-0.3.7-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:da8a4fda219bf9024692b1bc68c9cff4b80507879ada8769dc7e985755d662ea"},
-    {file = "ruff-0.3.7-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6c44e0149f1d8b48c4d5c33d88c677a4aa22fd09b1683d6a7ff55b816b5d074f"},
-    {file = "ruff-0.3.7-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:3050ec0af72b709a62ecc2aca941b9cd479a7bf2b36cc4562f0033d688e44fa1"},
-    {file = "ruff-0.3.7-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:a29cc38e4c1ab00da18a3f6777f8b50099d73326981bb7d182e54a9a21bb4ff7"},
-    {file = "ruff-0.3.7-py3-none-musllinux_1_2_i686.whl", hash = "sha256:5b15cc59c19edca917f51b1956637db47e200b0fc5e6e1878233d3a938384b0b"},
-    {file = "ruff-0.3.7-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:e491045781b1e38b72c91247cf4634f040f8d0cb3e6d3d64d38dcf43616650b4"},
-    {file = "ruff-0.3.7-py3-none-win32.whl", hash = "sha256:bc931de87593d64fad3a22e201e55ad76271f1d5bfc44e1a1887edd0903c7d9f"},
-    {file = "ruff-0.3.7-py3-none-win_amd64.whl", hash = "sha256:5ef0e501e1e39f35e03c2acb1d1238c595b8bb36cf7a170e7c1df1b73da00e74"},
-    {file = "ruff-0.3.7-py3-none-win_arm64.whl", hash = "sha256:789e144f6dc7019d1f92a812891c645274ed08af6037d11fc65fcbc183b7d59f"},
-    {file = "ruff-0.3.7.tar.gz", hash = "sha256:d5c1aebee5162c2226784800ae031f660c350e7a3402c4d1f8ea4e97e232e3ba"},
+    {file = "ruff-0.4.1-py3-none-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:2d9ef6231e3fbdc0b8c72404a1a0c46fd0dcea84efca83beb4681c318ea6a953"},
+    {file = "ruff-0.4.1-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:9485f54a7189e6f7433e0058cf8581bee45c31a25cd69009d2a040d1bd4bfaef"},
+    {file = "ruff-0.4.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d2921ac03ce1383e360e8a95442ffb0d757a6a7ddd9a5be68561a671e0e5807e"},
+    {file = "ruff-0.4.1-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:eec8d185fe193ad053eda3a6be23069e0c8ba8c5d20bc5ace6e3b9e37d246d3f"},
+    {file = "ruff-0.4.1-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:baa27d9d72a94574d250f42b7640b3bd2edc4c58ac8ac2778a8c82374bb27984"},
+    {file = "ruff-0.4.1-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:f1ee41580bff1a651339eb3337c20c12f4037f6110a36ae4a2d864c52e5ef954"},
+    {file = "ruff-0.4.1-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:0926cefb57fc5fced629603fbd1a23d458b25418681d96823992ba975f050c2b"},
+    {file = "ruff-0.4.1-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:2c6e37f2e3cd74496a74af9a4fa67b547ab3ca137688c484749189bf3a686ceb"},
+    {file = "ruff-0.4.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:efd703a5975ac1998c2cc5e9494e13b28f31e66c616b0a76e206de2562e0843c"},
+    {file = "ruff-0.4.1-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:b92f03b4aa9fa23e1799b40f15f8b95cdc418782a567d6c43def65e1bbb7f1cf"},
+    {file = "ruff-0.4.1-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:1c859f294f8633889e7d77de228b203eb0e9a03071b72b5989d89a0cf98ee262"},
+    {file = "ruff-0.4.1-py3-none-musllinux_1_2_i686.whl", hash = "sha256:b34510141e393519a47f2d7b8216fec747ea1f2c81e85f076e9f2910588d4b64"},
+    {file = "ruff-0.4.1-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:6e68d248ed688b9d69fd4d18737edcbb79c98b251bba5a2b031ce2470224bdf9"},
+    {file = "ruff-0.4.1-py3-none-win32.whl", hash = "sha256:b90506f3d6d1f41f43f9b7b5ff845aeefabed6d2494307bc7b178360a8805252"},
+    {file = "ruff-0.4.1-py3-none-win_amd64.whl", hash = "sha256:c7d391e5936af5c9e252743d767c564670dc3889aff460d35c518ee76e4b26d7"},
+    {file = "ruff-0.4.1-py3-none-win_arm64.whl", hash = "sha256:a1eaf03d87e6a7cd5e661d36d8c6e874693cb9bc3049d110bc9a97b350680c43"},
+    {file = "ruff-0.4.1.tar.gz", hash = "sha256:d592116cdbb65f8b1b7e2a2b48297eb865f6bdc20641879aa9d7b9c11d86db79"},
 ]
 
 [[package]]
@@ -1987,18 +1987,18 @@ test = ["array-api-strict", "asv", "gmpy2", "hypothesis (>=6.30)", "mpmath", "po
 
 [[package]]
 name = "setuptools"
-version = "69.2.0"
+version = "69.5.1"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "setuptools-69.2.0-py3-none-any.whl", hash = "sha256:c21c49fb1042386df081cb5d86759792ab89efca84cf114889191cd09aacc80c"},
-    {file = "setuptools-69.2.0.tar.gz", hash = "sha256:0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"},
+    {file = "setuptools-69.5.1-py3-none-any.whl", hash = "sha256:c636ac361bc47580504644275c9ad802c50415c7522212252c033bd15f301f32"},
+    {file = "setuptools-69.5.1.tar.gz", hash = "sha256:6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"},
 ]
 
 [package.extras]
-docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (<7.2.5)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
-testing = ["build[virtualenv]", "filelock (>=3.4.0)", "importlib-metadata", "ini2toml[lite] (>=0.9)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "mypy (==1.9)", "packaging (>=23.2)", "pip (>=19.1)", "pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-ruff (>=0.2.1)", "pytest-timeout", "pytest-xdist (>=3)", "tomli", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
+docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
+testing = ["build[virtualenv]", "filelock (>=3.4.0)", "importlib-metadata", "ini2toml[lite] (>=0.9)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "mypy (==1.9)", "packaging (>=23.2)", "pip (>=19.1)", "pytest (>=6,!=8.1.1)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy", "pytest-perf", "pytest-ruff (>=0.2.1)", "pytest-timeout", "pytest-xdist (>=3)", "tomli", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
 testing-integration = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "packaging (>=23.2)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
@@ -2011,7 +2011,7 @@ files = []
 develop = true
 
 [package.dependencies]
-muxtools = "^0.0.9"
+muxtools = "^0.1.0"
 vsdenoise = "^2.5.1"
 vskernels = "^3.1.0"
 vsmasktools = "^1.2.1"
@@ -2251,8 +2251,8 @@ vstools = ">=3.0.0"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-dehalo"
-reference = "508b8b2d5519ee7a27854cb68c46b6911dab9976"
-resolved_reference = "508b8b2d5519ee7a27854cb68c46b6911dab9976"
+reference = "4788fa57b25cbd216b879e1b308ad8696ab2035b"
+resolved_reference = "4788fa57b25cbd216b879e1b308ad8696ab2035b"
 
 [[package]]
 name = "vsdeinterlace"
@@ -2298,8 +2298,8 @@ vstools = ">=3.0.0"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise"
-reference = "3fa267dcd27906d763359c4d93b1347721bb69c1"
-resolved_reference = "3fa267dcd27906d763359c4d93b1347721bb69c1"
+reference = "2068f6583fedbef2cf53577dc265ee38d8845d94"
+resolved_reference = "2068f6583fedbef2cf53577dc265ee38d8845d94"
 
 [[package]]
 name = "vsengine"
@@ -2376,12 +2376,12 @@ vstools = ">=3.0.0"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools"
-reference = "b7aee78818d61b6dc720bf3b78a5bf6d210f3f29"
-resolved_reference = "b7aee78818d61b6dc720bf3b78a5bf6d210f3f29"
+reference = "e80bffbf0087e8c9edb75fd056179520a7ded877"
+resolved_reference = "e80bffbf0087e8c9edb75fd056179520a7ded877"
 
 [[package]]
 name = "vsmuxtools"
-version = "0.0.9"
+version = "0.1.0"
 description = "The extension to muxtools with vapoursynth and encoding stuff"
 optional = false
 python-versions = ">=3.10"
@@ -2389,7 +2389,7 @@ files = []
 develop = false
 
 [package.dependencies]
-muxtools = ">=0.0.9"
+muxtools = ">=0.1.0"
 numpy = ">=1.24.3"
 vapoursynth = ">=60"
 vstools = ">=1.6.2"
@@ -2397,8 +2397,8 @@ vstools = ">=1.6.2"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-muxtools"
-reference = "e106cc10fcce843acfefe739756c2c94fb475023"
-resolved_reference = "e106cc10fcce843acfefe739756c2c94fb475023"
+reference = "c477abf96beca0b64a26f2e7826473e5611f7e44"
+resolved_reference = "c477abf96beca0b64a26f2e7826473e5611f7e44"
 
 [[package]]
 name = "vspreview"
@@ -2427,8 +2427,8 @@ vstools = ">=3.0.0"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview"
-reference = "43ab2f74a71ec734a806f62e08de02c32fd8cfd0"
-resolved_reference = "43ab2f74a71ec734a806f62e08de02c32fd8cfd0"
+reference = "bb68df880a1b6e0f4ba4163e92eb397304c53f1b"
+resolved_reference = "bb68df880a1b6e0f4ba4163e92eb397304c53f1b"
 
 [[package]]
 name = "vspyplugin"
@@ -2464,8 +2464,8 @@ vstools = ">=3.0.0"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools"
-reference = "ef47164bc5c6ef9bf56b514c51b39ccbd817a8c1"
-resolved_reference = "ef47164bc5c6ef9bf56b514c51b39ccbd817a8c1"
+reference = "a9a5fd235df86f097c4669dea89de14c3a0d613f"
+resolved_reference = "a9a5fd235df86f097c4669dea89de14c3a0d613f"
 
 [[package]]
 name = "vsscale"
@@ -2507,13 +2507,13 @@ vstools = ">=3.0.0"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-source"
-reference = "8a6a24fe36123f84aa30d5d45ccd8cc9bd927064"
-resolved_reference = "8a6a24fe36123f84aa30d5d45ccd8cc9bd927064"
+reference = "ebad21823a416b94437cce00434287eeb3337630"
+resolved_reference = "ebad21823a416b94437cce00434287eeb3337630"
 
 [[package]]
 name = "vstools"
 version = "3.1.0"
-description = "Functions and utils related to VapourSynth"
+description = "Functions and utils related to VapourSynth."
 optional = false
 python-versions = ">=3.11"
 files = []
@@ -2527,8 +2527,8 @@ VapourSynth = ">=65"
 [package.source]
 type = "git"
 url = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools"
-reference = "636413d2fcc171b00ca69ef06e20f7dc39229c63"
-resolved_reference = "636413d2fcc171b00ca69ef06e20f7dc39229c63"
+reference = "67d83409a326f202b6bf36393c6e35e8a46de3db"
+resolved_reference = "67d83409a326f202b6bf36393c6e35e8a46de3db"
 
 [[package]]
 name = "vsutil"
@@ -2557,4 +2557,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.5"
-content-hash = "03453c04ac913224912f9eb8f9de15af467ee386578c280675b7ffe142c4fa11"
+content-hash = "05ec73f115808cf81c79c7f7803ddfe33638658de6f19324ee8e343c65860796"
