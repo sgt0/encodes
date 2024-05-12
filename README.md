@@ -4,7 +4,7 @@ sgt encodes.
 
 ## Setup
 
-1. Install Python v3.11.5.
+1. Install Python v3.12.3.
 2. Install Poetry.
 3. Install [VapourSynth][] globally.
 4. Install a bunch of VapourSynth plugins. Inexhaustive list:
@@ -32,7 +32,7 @@ sgt encodes.
     $ source .venv/bin/activate
 
     # Patches in `patches/` would need to be updated to target
-    # `.venv/lib/python3.11/site-packages/`.
+    # `.venv/lib/python3.12/site-packages/`.
     ```
 
 

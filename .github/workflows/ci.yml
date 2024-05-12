@@ -9,7 +9,7 @@ jobs:
       CC: gcc-12
       CXX: g++-12
     steps:
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
       - run: ${{ env.CC }} --version
       - name: Update pip
         run: |
@@ -25,13 +25,13 @@ jobs:
           poetry --version
       - uses: actions/setup-python@v5.1.0
         with:
-          python-version: '3.11.5'
+          python-version: '3.12.3'
           cache: poetry
           cache-dependency-path: poetry.lock
       - name: Install VapourSynth
         uses: rlaphoenix/install-vapoursynth-action@v2.1.1
         with:
-          version: 65
+          version: 66
           cache: true
       - run: pip inspect
       - name: Verify VapourSynth install

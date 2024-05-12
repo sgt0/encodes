@@ -1,13 +1,13 @@
 [project]
 name = "encodes"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 
 [tool.poetry]
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "3.11.5"
-vapoursynth = {version = "65", optional = true}
+python = "3.12.3"
+vapoursynth = {version = "66", optional = true}
 
 # pypi
 pymediainfo = "6.1.0"
@@ -15,17 +15,17 @@ sox = "1.5.0"
 
 # JET
 lvsfunc = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc", rev = "dd21e138d0f03bf0667a9831844a5efe790cbbac"}
-muxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/muxtools", rev = "5bc0986e26a3793cc6c73134131b74534dd99a30"}
-vsaa = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-aa", rev = "2c068f02026780df290d62722b944d64b61eb18c"}
-vsdeband = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-deband", rev = "d1a3eac0389157792c21511cab4e480552f3a671"}
-vsdehalo = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-dehalo", rev = "4788fa57b25cbd216b879e1b308ad8696ab2035b"}
-vsdenoise = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise", rev = "2068f6583fedbef2cf53577dc265ee38d8845d94"}
-vsexprtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-exprtools", rev = "ce28ecf44e2525ada73725b47e4f7c81aada12b9"}
+muxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/muxtools", rev = "e5c7c2159f2a0fb13684f221e9bb404f5459c5bd"}
+vsaa = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-aa", rev = "cdb04d598170943906925a1d4e9f28dbdc234d08"}
+vsdeband = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-deband", rev = "30f033b4037380fc7adb7de3e3ac0349e3c26442"}
+vsdehalo = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-dehalo", rev = "3cec4a7d569d91a2fd839a23609a9cb674fb79e0"}
+vsdenoise = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise", rev = "ff32b55dc7a0ad44be3988d1233a0e60d5c677d9"}
+vsexprtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-exprtools", rev = "f8d028e56a19940ed6e4cdbf51446d804464676a"}
 vskernels = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-kernels", rev = "73419b2399ce8e1d652bbf07d543245214d9d621"}
-vsmasktools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools", rev = "e80bffbf0087e8c9edb75fd056179520a7ded877"}
-vsmuxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-muxtools", rev = "c477abf96beca0b64a26f2e7826473e5611f7e44"}
-vspreview = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview", rev = "bb68df880a1b6e0f4ba4163e92eb397304c53f1b"}
-vsrgtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools", rev = "a9a5fd235df86f097c4669dea89de14c3a0d613f"}
+vsmasktools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools", rev = "06ae198edae6b9ab324c19770054377ad4f84338"}
+vsmuxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-muxtools", rev = "1f1d8cf5c3889fb8c01584725742bb203272d6d6"}
+vspreview = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview", rev = "76d99b988d32616aff97bfd38d3f60fc110e353a"}
+vsrgtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools", rev = "be5c6e6faf05eb86fef291c408aa6b85c590823e"}
 vsscale = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-scale", rev = "69d0085f730f3580950f3e0f24b8a18da3d9e5b8"}
 vssource = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-source", rev = "ebad21823a416b94437cce00434287eeb3337630"}
 vstools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools", rev = "67d83409a326f202b6bf36393c6e35e8a46de3db"}
@@ -33,8 +33,8 @@ vstools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools", rev =
 # misc
 awsmfunc = {git = "https://github.com/OpusGang/awsmfunc", rev = "77c01e914be5ba37fb2e08bf53e47f73649cffdf"}
 jvsfunc = {git = "https://github.com/dnjulek/jvsfunc", rev = "0200b4fe464557fb62ea1abdc04e6851b683bf2e"}
-stgpytools = {git = "https://github.com/Setsugennoao/stgpytools", rev = "a57a6fa28dc08d52268814b81f80e3814eb060b6"}
-vodesfunc = {git = "https://github.com/Vodes/vodesfunc", rev = "cea015749a39e6e259ddd64b4e76c0684ce1ee35"}
+stgpytools = {git = "https://github.com/Setsugennoao/stgpytools", rev = "8ee84a47ec605695ab2e765518b3b743907bed74"}
+vodesfunc = {git = "https://github.com/Vodes/vodesfunc", rev = "2e449300640f3f3c0461c6a07922bb34a213506e"}
 vs-rekt = {git = "https://github.com/OpusGang/rekt", rev = "37df56203c7d39c0aa5a9bcb15251dc06a7704ee"}
 
 # For muxtools patch to sanitize font names.
@@ -44,8 +44,8 @@ pathvalidate = "3.2.0"
 sgtfunc = {path = "src/sgtfunc", develop = true}
 
 [tool.poetry.group.dev.dependencies]
-mypy = "1.9.0"
-ruff = "0.4.1"
+mypy = "1.10.0"
+ruff = "0.4.3"
 
 fontvalidator = {git = "https://github.com/Funami580/Myaamori-Aegisub-Scripts", branch = "fix_mkv_mimetype_comparison", rev = "98f629a23837d3fb8de1aeddea3541d8d13be614", subdirectory = "scripts/fontvalidator"}
 getfscaler = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/getfscaler", rev = "7cd966d8ed7dae7a7134be9e55190c71ed0de9dd"}
