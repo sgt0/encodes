@@ -7,7 +7,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "3.12.3"
-vapoursynth = {version = "66", optional = true}
+vapoursynth = {version = "68", optional = true}
 
 # pypi
 pymediainfo = "6.1.0"
@@ -45,10 +45,10 @@ sgtfunc = {path = "src/sgtfunc", develop = true}
 
 [tool.poetry.group.dev.dependencies]
 mypy = "1.10.0"
-ruff = "0.4.3"
+ruff = "0.4.4"
 
 fontvalidator = {git = "https://github.com/Funami580/Myaamori-Aegisub-Scripts", branch = "fix_mkv_mimetype_comparison", rev = "98f629a23837d3fb8de1aeddea3541d8d13be614", subdirectory = "scripts/fontvalidator"}
-getfscaler = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/getfscaler", rev = "7cd966d8ed7dae7a7134be9e55190c71ed0de9dd"}
+getfscaler = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/getfscaler", rev = "1c319ff5c52214e11e9bd7723679a6b37a2c94d7"}
 getnative = {git = "https://github.com/Infiziert90/getnative", rev = "720c3953d7668d0d5daf8abf827d63b3936d6d2b"}
 getnativef = {git = "https://github.com/Vodes/getnativef", rev = "7038fed0737287f2bd32580ef549f6facb4932bf"}
 
@@ -108,7 +108,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["sgtfunc"]
+known-first-party = ["sgtfunc", "dededede_common"]
 
 [tool.ruff.lint.per-file-ignores]
 "src/MysteriaFriends/*.py" = ["FBT003"]
