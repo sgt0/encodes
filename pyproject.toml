@@ -1,59 +1,62 @@
 [project]
 name = "encodes"
+version = "0.0.0"
 requires-python = ">=3.12"
+dependencies = [
+    "vapoursynth==72",
 
-[tool.poetry]
-package-mode = false
+    "pymediainfo==7.0.1",
+    "sox==1.5.0",
 
-[tool.poetry.dependencies]
-python = "3.12.3"
-vapoursynth = {version = "68", optional = true}
+    # JET
+    "lvsfunc==0.8.5",
+    "muxtools==0.3.0",
+    "vsmuxtools==0.3.0",
+    "vsjetpack==0.4.0",
+    "vspreview==0.14.0",
 
-# pypi
-pymediainfo = "6.1.0"
-sox = "1.5.0"
+    # misc
+    "awsmfunc",
+    "stgpytools",
+    "vodesfunc==1.8.4",
+    "vs-colorfix",
+    "vs-rekt",
 
-# JET
-lvsfunc = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/lvsfunc", rev = "9d409754a3dcfa3a5d7c094f11ae951b24e572d7"}
-muxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/muxtools", rev = "fc2cea3565b037b550b2d181b48aaa73c3e0b67a"}
-vsaa = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-aa", rev = "60c403670abaf079239616ad3d1acd347079590b"}
-vsdeband = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-deband", rev = "267c02bf9815bc3611f6fa1ef7fe3ecf23c4312f"}
-vsdehalo = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-dehalo", rev = "25868fb90517ffc53774719d138732edcad7eccf"}
-vsdenoise = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise", rev = "523681ed8326b04d716bb8acead26e0ce078d957"}
-vsexprtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-exprtools", rev = "3f1983d3877e130cebd8c255f642d39f7b4c095a"}
-vskernels = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-kernels", rev = "e7a52925ae83a734509f161275f646b8307a9e52"}
-vsmasktools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-masktools", rev = "07dacc3e784889c86a528403061173fe0201cfa6"}
-vsmuxtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-muxtools", rev = "1f1d8cf5c3889fb8c01584725742bb203272d6d6"}
-vspreview = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview", rev = "8210f0b0e2de6147467d4450de68b1d2fb9996dc"}
-vsrgtools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-rgtools", rev = "9156d1936ba4f18f7223871a04645de45d1e6a2b"}
-vsscale = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-scale", rev = "8ad6b2f5e7c8af48beb7cf0d244f22bcb1c91346"}
-vssource = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-source", rev = "2373331255014a66f4c046aa7c7605bf78005f1c"}
-vstools = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/vs-tools", rev = "8a88bd35d5c65b53d5e2d275eb1560925f7784c2"}
+    # local
+    "sgtfunc"
+]
 
+[dependency-groups]
+dev = [
+    "mypy==1.16.1",
+    "ruff==0.12.1",
+
+    "fontvalidator",
+    "getfscaler",
+    "getnative",
+
+    # dependencies of vspreview plugins
+    "opencv-python==4.11.0.86",
+    "scipy==1.16.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
 # misc
-awsmfunc = {git = "https://github.com/OpusGang/awsmfunc", rev = "e1290f799162749fc627951290bfb4089f2f39cb"}
-jvsfunc = {git = "https://github.com/dnjulek/jvsfunc", rev = "0200b4fe464557fb62ea1abdc04e6851b683bf2e"}
-stgpytools = {git = "https://github.com/Setsugennoao/stgpytools", rev = "0e6b247e2381edf5fdab470e5d8116544b6f3bcd"}
-vodesfunc = {git = "https://github.com/Vodes/vodesfunc", rev = "464f93d99fa435a5e345144edc1c5d5c26dd7b90"}
+awsmfunc = {git = "https://github.com/OpusGang/awsmfunc", rev = "e6987f7c7a412712ad1ecbd073b433b8529a3209"}
+vs-colorfix = { git = "https://github.com/pifroggi/vs_colorfix.git" }
 vs-rekt = {git = "https://github.com/OpusGang/rekt", rev = "37df56203c7d39c0aa5a9bcb15251dc06a7704ee"}
 
-# For muxtools patch to sanitize font names.
-pathvalidate = "3.2.0"
-
 # local
-sgtfunc = {path = "src/sgtfunc", develop = true}
+sgtfunc = {path = "src/sgtfunc", editable = true}
 
-[tool.poetry.group.dev.dependencies]
-mypy = "1.10.1"
-ruff = "0.5.0"
-
-fontvalidator = {git = "https://github.com/Funami580/Myaamori-Aegisub-Scripts", branch = "fix_mkv_mimetype_comparison", rev = "98f629a23837d3fb8de1aeddea3541d8d13be614", subdirectory = "scripts/fontvalidator"}
-getfscaler = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/getfscaler", rev = "1c319ff5c52214e11e9bd7723679a6b37a2c94d7"}
+# dev
+fontvalidator = {git = "https://github.com/Funami580/Myaamori-Aegisub-Scripts", branch = "fix_mkv_mimetype_comparison", subdirectory = "scripts/fontvalidator"}
+getfscaler = {git = "https://github.com/Jaded-Encoding-Thaumaturgy/getfscaler", rev = "4a62bad3091bf9c9611423572d262fe2f0da4a7a"}
 getnative = {git = "https://github.com/Infiziert90/getnative", rev = "720c3953d7668d0d5daf8abf827d63b3936d6d2b"}
 getnativef = {git = "https://github.com/Vodes/getnativef", rev = "7038fed0737287f2bd32580ef549f6facb4932bf"}
-
-# dependencies of vspreview plugins
-scipy = "1.14.0"
 
 [tool.mypy]
 disallow_untyped_calls = true
@@ -108,7 +111,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["sgtfunc", "dededede_common"]
+known-first-party = ["sgtfunc", "badgirl_common", "dededede_common", "witchandbeast_common", "yozakura_common"]
 
 [tool.ruff.lint.per-file-ignores]
 "src/MysteriaFriends/*.py" = ["FBT003"]

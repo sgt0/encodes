@@ -4,29 +4,20 @@ from collections.abc import Iterable, Sequence
 from pathlib import Path
 from typing import Literal, NamedTuple
 
-from muxtools import GJM_GANDHI_PRESET, edit_style, gandhi_default
 from vskernels import Catrom, KernelT
 from vsmasktools import EdgeDetectT, GenericMaskT, PrewittStd
 from vstools import Keyframes, MatrixT, SceneBasedDynamicCache, SingleOrArr, vs
 
-SGT_SUBS_STYLES = [
-    *GJM_GANDHI_PRESET,
-    edit_style(gandhi_default, "Signs", margin_l=10, margin_r=10, margin_v=10),
-]
-"""
-GJM Gandhi Sans preset with an additional "Signs" style.
-"""
-
 
 def denoise(
     clip: vs.VideoNode,
-    block_size: int = 16,
-    limit: int | tuple[int, int] = 255,
-    overlap: int = 8,
+    block_size: int = 64,
+    limit: int | tuple[int | None, int | None] | None = None,
+    refine: int = 3,
     sigma: SingleOrArr[float] = 0.7,
     sr: int = 2,
     strength: float = 0.2,
-    thSAD: int | tuple[int, int | tuple[int, int]] | None = 115,  # noqa: N803
+    thSAD: int | tuple[int, int] = 115,  # noqa: N803
     tr: int = 2,
 ) -> vs.VideoNode:
     """
@@ -36,29 +27,23 @@ def denoise(
     from vsdenoise import (
         BM3DCudaRTC,
         DeviceType,
-        MotionMode,
-        MVTools,
-        PelType,
+        MVToolsPresets,
+        NLMWeightMode,
         Prefilter,
         Profile,
-        SADMode,
-        SearchMode,
-        WeightMode,
+        mc_degrain,
         nl_means,
     )
     from vstools import ChromaLocation
 
-    ref = MVTools.denoise(
+    ref = mc_degrain(  # type: ignore[call-overload]
         clip,
-        sad_mode=SADMode.SPATIAL.same_recalc,
-        motion=MotionMode.HIGH_SAD,
         prefilter=Prefilter.DFTTEST,
-        pel_type=PelType.WIENER,
-        search=SearchMode.DIAMOND.defaults,
-        block_size=block_size,
-        overlap=overlap,
-        thSAD=thSAD,
+        preset=MVToolsPresets.HQ_SAD,
+        blksize=block_size,
+        thsad=thSAD,
         limit=limit,
+        refine=refine,
     )
 
     denoised_luma = BM3DCudaRTC.denoise(clip, ref=ref, sigma=sigma, tr=tr, profile=Profile.NORMAL, planes=0)
@@ -70,7 +55,7 @@ def denoise(
         strength=strength,
         tr=tr,
         sr=sr,
-        wmode=WeightMode.BISQUARE_HR,  # wmode=3
+        wmode=NLMWeightMode.BISQUARE_HR,  # wmode=3
         planes=[1, 2],
         device_type=DeviceType.CUDA,
     )
@@ -412,7 +397,7 @@ def adb_heuristics(
             for i, prop in zip(range(3), ["EdgeValRefDiff", "YNextDiff", "YPrevDiff"], strict=True)
         )
 
-        f_type = get_prop(f[0], "_PictType", bytes).decode("utf-8")
+        f_type = get_prop(f[0], "_PictType", str)
         if f_type == "I":
             y_next_diff = (y_next_diff + evref_diff) / 2
 
@@ -438,7 +423,7 @@ def adb_heuristics(
     evref = normalize_mask(edge_mask, rgb)
 
     # Note that `mode="s"` is not equivalent to `mode=ConvMode.SQUARE`.
-    evref_rm = BlurMatrix.WMEAN(evref.std.Median(), mode="s")  # type: ignore[arg-type]
+    evref_rm = BlurMatrix.BINOMIAL()(evref.std.Median(), mode="s")
 
     diffevref = evref.std.PlaneStats(evref_rm, prop="EdgeValRef")
     diffnext = rgb.std.PlaneStats(shift_clip(rgb, 1), prop="YNext")

@@ -4,8 +4,8 @@ sgt encodes.
 
 ## Setup
 
-1. Install Python v3.12.3.
-2. Install Poetry.
+1. Install Python v3.12.5.
+2. Install uv.
 3. Install [VapourSynth][] globally.
 4. Install a bunch of VapourSynth plugins. Inexhaustive list:
     1. [vs-dfttest2][]. Add `dfttest2.py` to global `site-packages/`.
@@ -15,25 +15,7 @@ sgt encodes.
     5. [VapourSynth-BM3DCUDA][].
     6. [vs-miscfilters][].
     7. [vs-nlm-cuda][].
-5.
-    ```bash
-    # Windows
-    $ poetry install
-    $ .venv/Scripts/activate.bat
-    $ patch -Np1 -i patches/fontvalidator-validate-all-tracks.patch
-    $ patch -Np1 -i patches/muxtools-sanitize-font-names.patch
-    $ patch -Np1 -i patches/muxtools-tags-utf8.patch
-    $ patch -Np1 -i patches/vsdeband-grain-post-process-type.patch
-    ```
-
-    ```bash
-    # Linux
-    $ poetry install
-    $ source .venv/bin/activate
-
-    # Patches in `patches/` would need to be updated to target
-    # `.venv/lib/python3.12/site-packages/`.
-    ```
+5. `uv sync`
 
 
 
