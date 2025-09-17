@@ -64,6 +64,8 @@ def filterchain(
     *,
     source: Source,
     no_descale: FrameRangeN | FrameRangesN,
+    force_adn: FrameRangeN | FrameRangesN | None = None,
+    force_amzn: FrameRangeN | FrameRangesN | None = None,
     post_double: Callable[[vs.VideoNode], vs.VideoNode] | None = None,
 ) -> FilterchainResults:
     adn_file = src_file(str(source.adn_path), preview_sourcefilter=SourceFilter.BESTSOURCE)
@@ -100,6 +102,10 @@ def filterchain(
         return adn if adn_avg > amzn_avg else amzn
 
     src = adn.std.FrameEval(partial(scene_select), clip_src=[adn, amzn], prop_src=[adn, amzn])
+    if force_adn:
+        src = replace_ranges(src, adn, force_adn)
+    if force_amzn:
+        src = replace_ranges(src, amzn, force_amzn)
 
     # OP/ED handling.
     if source.op:

@@ -41,4 +41,46 @@ sources = {
         op=(432, 432 + 2156 + 1),
         ed=(30449, 30449 + 2156 + 2),
     ),
+    "05": Source(
+        adn_path=RAWS_DIRECTORY / "05 (ADN).mkv",
+        amzn_path=RAWS_DIRECTORY / "05 (AMZN).mkv",
+        op=(840, 840 + 2156),
+        ed=(29875, 29875 + 2156),
+    ),
+    "06": Source(
+        adn_path=RAWS_DIRECTORY / "06 (ADN).mkv",
+        amzn_path=RAWS_DIRECTORY / "06 (AMZN).mkv",
+        op=(1296, 1296 + 2156),
+        ed=(26951, 26951 + 2156),
+    ),
+    "07": Source(
+        adn_path=RAWS_DIRECTORY / "07 (ADN).mkv",
+        amzn_path=RAWS_DIRECTORY / "07 (AMZN).mkv",
+        op=(1152, 1152 + 2156),
+        ed=(30400, 30400 + 2156 + 2),
+    ),
+    "08": Source(
+        adn_path=RAWS_DIRECTORY / "08 (ADN).mkv",
+        amzn_path=RAWS_DIRECTORY / "08 (AMZN).mkv",
+        op=(840, 840 + 2156),
+        ed=(30520, 30520 + 2156 + 2),
+    ),
+    "09": Source(
+        adn_path=RAWS_DIRECTORY / "09 (ADN).mkv",
+        amzn_path=RAWS_DIRECTORY / "09 (AMZN).mkv",
+        op=(1032, 1032 + 2156),
+        ed=(30664, 30664 + 2156 + 2),
+    ),
+    "10": Source(
+        adn_path=RAWS_DIRECTORY / "10 (ADN).mkv",
+        amzn_path=RAWS_DIRECTORY / "10 (AMZN).mkv",
+        op=(936, 936 + 2156),
+        ed=(30329, 30329 + 2156 + 2),
+    ),
+    "11": Source(
+        adn_path=RAWS_DIRECTORY / "11 (ADN).mkv",
+        amzn_path=RAWS_DIRECTORY / "11 (AMZN).mkv",
+        op=(720, 720 + 2156 + 1),
+        ed=(30426, 30426 + 2156 + 2),
+    ),
 }
